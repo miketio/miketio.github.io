@@ -3,28 +3,230 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Video Résumé</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Mikhail Tiuterev - Video Resume</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Font (Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* Apply the Inter font family */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6; /* bg-gray-100 */
+        }
+        
+        /* Custom scrollbar for the resume panel */
+        .resume-panel::-webkit-scrollbar {
+            width: 8px;
+        }
+        .resume-panel::-webkit-scrollbar-track {
+            background: #e5e7eb; /* gray-200 */
+            border-radius: 10px;
+        }
+        .resume-panel::-webkit-scrollbar-thumb {
+            background: #9ca3af; /* gray-400 */
+            border-radius: 10px;
+        }
+        .resume-panel::-webkit-scrollbar-thumb:hover {
+            background: #6b7280; /* gray-500 */
+        }
+
+        /* Ensure the main container fills the height on large screens */
+        @media (min-width: 1024px) {
+            .main-container {
+                max-height: 95vh;
+                height: 95vh;
+            }
+        }
+    </style>
 </head>
-<body>
-    <header>
-        <h1>Your Name</h1>
-        <p>Short tagline: Developer | Designer | Creator</p>
-    </header>
+<body class="flex items-center justify-center min-h-screen p-4 md:p-8">
 
-    <section>
-        <h2>Video Introduction</h2>
-        <video width="600" controls>
-            <source src="your-video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <!-- OR YouTube embed -->
-        <!-- <iframe width="600" height="340" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe> -->
-    </section>
+    <!-- Main Content Card -->
+    <main class="bg-white rounded-2xl shadow-2xl overflow-hidden max-w-7xl w-full mx-auto main-container">
+        <div class="lg:flex h-full">
+            
+            <!-- Left Side: Video, Profile, Actions -->
+            <div class="lg:w-1/2 xl:w-5/12 p-6 md:p-10 flex flex-col">
+                
+                <!-- Video Player -->
+                <div class="w-full aspect-video rounded-xl overflow-hidden shadow-lg bg-black">
+                    <!-- 
+                      TODO: 
+                      1. Replace 'YOUR_VIDEO.mp4' with the path to your 1-minute video file.
+                      2. Replace the 'poster' URL with a screenshot from your video.
+                    -->
+                    <video id="videoPlayer" class="w-full h-full" controls 
+                           poster="https://placehold.co/1920x1080/0284c7/white?text=Mikhail+Tiuterev's\nVideo+Resume&font=inter">
+                        <source src="YOUR_VIDEO.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                
+                <!-- Profile Card -->
+                <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-6 mt-8">
+                    <h1 class="text-3xl md:text-4xl font-bold text-gray-900">Mikhail Tiuterev</h1>
+                    <p class="text-xl md:text-2xl text-blue-600 font-medium mt-2">Applied Scientist & Physics MSc Student</p>
+                    
+                    <p class="text-gray-700 mt-6 text-base">
+                        I'm an applied scientist and physics MSc student who loves taming complex systems with machine learning, computational modeling, or a touch of clever automation. I believe innovation moves fastest when people talk plainly, work together turning big questions into small & doable steps.
+                    </p>
+                </div>
 
-    <section>
-        <h2>Résumé</h2>
-        <a href="resume.pdf" download>Download My Résumé</a>
-    </section>
+                <!-- Action Buttons -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
+                    <!-- 
+                      TODO: 
+                      Make sure the 'resume.pdf' file is in the same directory,
+                      or update the href path.
+                    -->
+                    <a href="resume.pdf" download="Mikhail_Tiuterev_Resume.pdf" class="flex items-center justify-center gap-2 p-4 rounded-lg bg-blue-600 text-white font-semibold text-center hover:bg-blue-700 transition-colors shadow-md">
+                        <i class="fas fa-file-arrow-down"></i>
+                        Download CV
+                    </a>
+                    <a href="mailto:mikhail.tiuterev@gmail.com" class="flex items-center justify-center gap-2 p-4 rounded-lg bg-gray-800 text-white font-semibold text-center hover:bg-gray-900 transition-colors shadow-md">
+                        <i class="fas fa-paper-plane"></i>
+                        Contact Me
+                    </a>
+                </div>
+
+                <!-- Contact Links -->
+                <div classfor="flex justify-center flex-wrap gap-x-8 gap-y-4 mt-8 pt-8 border-t border-gray-200">
+                    <a href="mailto:mikhail.tiuterev@gmail.com" target="_blank" class="flex items-center text-gray-600 hover:text-blue-600 transition-colors group">
+                        <i class="fas fa-envelope fa-fw w-5 text-center mr-2 text-gray-400 group-hover:text-blue-500 text-xl"></i>
+                        <span class="font-medium">Email</span>
+                    </a>
+                    <a href="https://linkedin.com/in/tiuterevmt" target="_blank" class="flex items-center text-gray-600 hover:text-blue-600 transition-colors group">
+                        <i class="fab fa-linkedin fa-fw w-5 text-center mr-2 text-gray-400 group-hover:text-blue-500 text-xl"></i>
+                        <span class="font-medium">LinkedIn</span>
+                    </a>
+                    <a href="https://github.com/miketio" target="_blank" class="flex items-center text-gray-600 hover:text-blue-600 transition-colors group">
+                        <i class="fab fa-github fa-fw w-5 text-center mr-2 text-gray-400 group-hover:text-blue-500 text-xl"></i>
+                        <span class="font-medium">GitHub</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Right Side: Scrollable Resume Content -->
+            <div class="lg:w-1/2 xl:w-7/12 bg-gray-50 p-6 md:p-10 lg:overflow-y-auto resume-panel h-full">
+                
+                <!-- Education -->
+                <section class="mb-10">
+                    <h2 class="text-3xl font-bold text-gray-800 border-b-2 border-blue-500 pb-2 mb-6">Education</h2>
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900">M.Sc. Physics</h3>
+                            <p class="text-md font-medium text-gray-700">University of Bonn (Bonn, Germany)</p>
+                            <p class="text-sm text-gray-500">Nov 2023 - approx. Apr 2026</p>
+                            <ul class="list-disc list-outside text-gray-600 mt-2 pl-5 space-y-1">
+                                <li>GPA: 2.2 (IT courses GPA: 1.3)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900">B.Sc. Applied Math & Physics</h3>
+                            <p class="text-md font-medium text-gray-700">Saint-Petersburg State University (Russia)</p>
+                            <p class="text-sm text-gray-500">Sep 2019 - Jul 2023</p>
+                            <ul class="list-disc list-outside text-gray-600 mt-2 pl-5 space-y-1">
+                                <li>Graduated with distinctions (GPA: 4.9/5.0, Top 1%)</li>
+                                <li>Awarded an academic scholarship</li>
+                                <li>Thesis: Analysis of numerical models for aging of li-ion batteries</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Experience -->
+                <section class="mb-10">
+                    <h2 class="text-3xl font-bold text-gray-800 border-b-2 border-blue-500 pb-2 mb-6">Experience</h2>
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900">Aerodynamics Team Member</h3>
+                            <p class="text-md font-medium text-gray-700">GET Racing (Dortmund, Germany)</p>
+                            <p class="text-sm text-gray-500">Jan 2025 - Present</p>
+                            <ul class="list-disc list-outside text-gray-600 mt-2 pl-5 space-y-1">
+                                <li>Designed aerodynamic components (Creo) and manufactured carbon-fiber parts.</li>
+                                <li>Contributed to a 30% increase in downforce and improved manufacturing quality.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900">Research Assistant</h3>
+                            <p class="text-md font-medium text-gray-700">University of Bonn (Bonn, Germany)</p>
+                            <p class="text-sm text-gray-500">Aug 2024 - Oct 2024</p>
+                            <ul class="list-disc list-outside text-gray-600 mt-2 pl-5 space-y-1">
+                                <li>Automated laser experiment setup with a Python/PyQt5 multi-threaded controller.</li>
+                                <li>Applied optimization methods (Nelder-Mead, Adam) to improve system performance.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Competitions & Hackathons -->
+                <section class="mb-10">
+                    <h2 class="text-3xl font-bold text-gray-800 border-b-2 border-blue-500 pb-2 mb-6">Competitions & Hackathons</h2>
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900">DeepRacer Cup (Audi & AWS) - Top 20 Finalist</h3>
+                            <p class="text-sm text-gray-500">Aug 2025 - Oct 2025</p>
+                            <ul class="list-disc list-outside text-gray-600 mt-2 pl-5 space-y-1">
+                                <li>Autonomous racing with reinforcement learning.</li>
+                                <li>Optimized action-space (Metropolis-Hastings), ran local PyTorch simulations.</li>
+                                <li>Position 19 in finals out of 400 participants.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900">Tech Arena - Huawei (Sweden) - Top 7 Finalist</h3>
+                            <p class="text-sm text-gray-500">Jul 2025 - Aug 2025</p>
+                            <ul class="list-disc list-outside text-gray-600 mt-2 pl-5 space-y-1">
+                                <li>Al-enabled SVD operator for wireless communications.</li>
+                                <li>Built hybrid CNN & Transformer model; optimized compute (<8M MACs). Placed 7/80.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900">Tech Arena - Huawei (Nuremberg 2024) - 3rd place</h3>
+                            <p class="text-sm text-gray-500">Sep 2024 - Jan 2025</p>
+                            <ul class="list-disc list-outside text-gray-600 mt-2 pl-5 space-y-1">
+                                <li>State-of-Charge (SoC) estimation from noisy voltage/current.</li>
+                                <li>Implemented Extended Kalman Filter and tuned parameters (Nelder-Mead).</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900">Other Hackathons (2024-2025)</h3>
+                            <ul class="list-disc list-outside text-gray-600 mt-2 pl-5 space-y-1">
+                                <li>IFM Hackathon 2025 (1st): RFID app with SAP BTP integration.</li>
+                                <li>Huawei Tech Arena (Nuremberg 2025, ongoing): BESS energy optimization.</li>
+                                <li>DFL Hackathon: Dynamic pricing (Bellman eqn + Monte Carlo).</li>
+                                <li>RWTH Mining Hackathon (3rd): On-demand 3D spare parts delivery.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Skills -->
+                <section class="mb-10">
+                    <h2 class="text-3xl font-bold text-gray-800 border-b-2 border-blue-500 pb-2 mb-6">Skills</h2>
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Programming Languages / Tools</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            Python (numpy, scipy, pandas, PyTorch, TensorFlow, scikit-learn, matplotlib), MATLAB (Optimization Toolbox, Simulink, Image Processing), Git / GitHub, Linux (bash), COMSOL, Autodesk (Inventor & Fusion), VBA, LaTeX, PyQt5, Arduino, SciPy linprog
+                        </p>
+                    </div>
+                    <div class="mt-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Theoretical Background</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            ML & Deep Learning (CNN, RNN, Transformers), Reinforcement Learning, Advanced Optimization (gradient methods, Nelder-Mead, ADAM, LP/QP), Statistical Methods, Time Series Analysis, Stochastic Processes & Monte Carlo, Kalman Filters, Signal & Image Processing, Finite Element Methods, Numerical Methods, Probabilistic Modeling
+                        </p>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
 </body>
 </html>
