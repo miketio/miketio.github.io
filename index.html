@@ -9,80 +9,798 @@
     <meta name="description" content="Mikhail Tiuterev - Applied Scientist and Physics MSc student specializing in Machine Learning, Deep Learning, and Computational Modeling. Top performer in AI competitions.">
     <meta name="keywords" content="Mikhail Tiuterev, Applied Scientist, Machine Learning, Deep Learning, Physics, AI Engineer, Reinforcement Learning, Python, PyTorch, TensorFlow">
     <meta name="author" content="Mikhail Tiuterev">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://miketio.github.io/video-resume/">
     
-    <!-- Open Graph / Social Media -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Mikhail Tiuterev - Video Resume">
-    <meta property="og:description" content="Applied Scientist specializing in ML, Deep Learning, and Computational Modeling">
-    <meta property="og:url" content="https://miketio.github.io/video-resume/">
-    <meta property="og:image" content="https://miketio.github.io/video-resume/profile-photo.jpg">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Mikhail Tiuterev - Video Resume">
-    <meta name="twitter:description" content="Applied Scientist specializing in ML, Deep Learning, and Computational Modeling">
-    <meta name="twitter:image" content="https://miketio.github.io/video-resume/profile-photo.jpg">
-    
-    <!-- Structured Data for SEO -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Mikhail Tiuterev",
-      "jobTitle": "Applied Scientist & Physics MSc Student",
-      "email": "mikhail.tiuterev@gmail.com",
-      "telephone": "+4915731323284",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Bonn",
-        "postalCode": "53119",
-        "addressCountry": "DE"
-      },
-      "url": "https://github.com/miketio",
-      "sameAs": [
-        "https://linkedin.com/in/tiuterevmt",
-        "https://github.com/miketio"
-      ],
-      "alumniOf": [
-        {
-          "@type": "EducationalOrganization",
-          "name": "University of Bonn"
-        },
-        {
-          "@type": "EducationalOrganization",
-          "name": "Saint-Petersburg State University"
-        }
-      ],
-      "knowsAbout": ["Machine Learning", "Deep Learning", "Physics", "Python", "TensorFlow", "PyTorch"]
-    }
-    </script>
-    
-    <!-- Preload critical resources -->
-    <link rel="preload" href="styles.css" as="style">
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style">
-    
-    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <!-- Google Analytics (loaded via config file) -->
-    <script src="config.js"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=CONFIG_NOT_LOADED"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        if (window.ANALYTICS_ID) {
-            gtag('config', window.ANALYTICS_ID);
-        }
-    </script>
+    <style>
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #e74c3c;
+    --accent-color: #3498db;
+    --text-dark: #2c3e50;
+    --text-light: #7f8c8d;
+    --bg-light: #ecf0f1;
+    --bg-white: #ffffff;
+    --border-color: #dfe6e9;
+    --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Dark Mode Variables */
+body.dark-mode {
+    --primary-color: #1a252f;
+    --secondary-color: #e74c3c;
+    --accent-color: #3498db;
+    --text-dark: #ecf0f1;
+    --text-light: #95a5a6;
+    --bg-light: #0f1419;
+    --bg-white: #1a252f;
+    --border-color: #2c3e50;
+    --shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Header */
+.header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.75rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow);
+    transition: background-color 0.3s ease;
+}
+
+.header-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    opacity: 0.95;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.btn {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    text-decoration: none;
+}
+
+.btn-download {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.btn-download:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.btn-contact {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.btn-contact:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.btn-theme {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 0.6rem 0.8rem;
+}
+
+.btn-theme:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Language Switcher */
+.language-switcher {
+    position: relative;
+}
+
+.language-btn {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    padding: 0.6rem 0.8rem;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.language-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.language-dropdown {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    background-color: var(--bg-white);
+    border-radius: 5px;
+    box-shadow: var(--shadow-lg);
+    min-width: 150px;
+    overflow: hidden;
+    display: none;
+    z-index: 1000;
+}
+
+.language-dropdown.active {
+    display: block;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.lang-option {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: none;
+    background: none;
+    text-align: left;
+    cursor: pointer;
+    color: var(--text-dark);
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+}
+
+.lang-option:hover {
+    background-color: var(--bg-light);
+}
+
+.lang-option.active {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+/* Main Container - FIXED RESPONSIVE GRID */
+.main-container {
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 1.8fr 1fr; /* More balanced ratio */
+    gap: 2rem;
+    min-height: calc(100vh - 200px);
+}
+
+/* Video Section */
+.video-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.video-wrapper {
+    background-color: #000;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    aspect-ratio: 16/9;
+}
+
+#videoPlayer {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Profile Card - ENHANCED WITH LOCATION & GITHUB */
+.profile-card {
+    background-color: var(--bg-white);
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-lg);
+    border-left: 5px solid var(--accent-color);
+    transition: all 0.3s ease;
+}
+
+.profile-header {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.25rem;
+    align-items: center;
+}
+
+.profile-photo {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--accent-color);
+    box-shadow: var(--shadow);
+    flex-shrink: 0;
+}
+
+.profile-info {
+    flex: 1;
+}
+
+.profile-name {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.4rem;
+}
+
+.profile-title {
+    font-size: 0.95rem;
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.profile-contact-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1.5rem;
+    align-items: start;
+    padding-top: 1.25rem;
+    border-top: 2px solid var(--border-color);
+}
+
+.profile-contact {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--text-dark);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    padding: 0.4rem;
+    border-radius: 5px;
+}
+
+.contact-link i {
+    color: var(--accent-color);
+    width: 18px;
+    flex-shrink: 0;
+}
+
+.contact-link:hover {
+    color: var(--accent-color);
+    background-color: var(--bg-light);
+}
+
+/* Social Share Buttons */
+.social-share {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.share-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--border-color);
+    background-color: transparent;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.share-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+.share-btn:nth-child(1):hover {
+    background-color: #0077b5;
+    border-color: #0077b5;
+    color: white;
+}
+
+.share-btn:nth-child(2):hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: white;
+}
+
+.share-btn:nth-child(3):hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: white;
+}
+
+/* Resume Sidebar */
+.resume-sidebar {
+    background-color: var(--bg-white);
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: var(--shadow-lg);
+    overflow-y: auto;
+    max-height: calc(100vh - 150px);
+    transition: background-color 0.3s ease;
+}
+
+.resume-sidebar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.resume-sidebar::-webkit-scrollbar-track {
+    background: var(--bg-light);
+    border-radius: 10px;
+}
+
+.resume-sidebar::-webkit-scrollbar-thumb {
+    background: var(--text-light);
+    border-radius: 10px;
+}
+
+.resume-sidebar::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
+.resume-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.resume-section {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1.5rem;
+}
+
+.resume-section:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.section-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--secondary-color);
+}
+
+.text-content {
+    color: var(--text-dark);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+/* Skills List */
+.skills-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.skills-list li {
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--text-dark);
+    font-size: 0.9rem;
+}
+
+.skills-list li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+/* Timeline Items */
+.timeline-item {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+    border-left: 3px solid var(--accent-color);
+    transition: border-color 0.3s ease;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.item-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.25rem;
+}
+
+.item-subtitle {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.item-date {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    font-style: italic;
+    margin-bottom: 0.75rem;
+}
+
+.item-details {
+    list-style: disc;
+    padding-left: 1.25rem;
+    color: var(--text-dark);
+}
+
+.item-details li {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background-color: var(--bg-white);
+    border-radius: 10px;
+    padding: 2.5rem;
+    max-width: 600px;
+    width: 100%;
+    position: relative;
+    box-shadow: var(--shadow-lg);
+    animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: color 0.3s ease;
+    line-height: 1;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+}
+
+.modal-close:hover {
+    color: var(--secondary-color);
+}
+
+.modal-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+}
+
+/* Contact Form */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 0.75rem;
+    border: 2px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+    background-color: var(--bg-white);
+    color: var(--text-dark);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.btn-submit {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 1rem;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+
+.btn-submit:hover {
+    background-color: #c0392b;
+}
+
+/* MOBILE RESPONSIVE FIXES */
+@media (max-width: 1200px) {
+    .main-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .resume-sidebar {
+        max-height: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 0.5rem 0;
+    }
+    
+    .header-content {
+        padding: 0 1rem;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+    
+    .logo {
+        font-size: 1.1rem;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .nav-buttons {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+    }
+    
+    .btn {
+        font-size: 0.75rem;
+        padding: 0.5rem 0.9rem;
+    }
+    
+    .btn i {
+        font-size: 0.85rem;
+    }
+    
+    /* Profile Card Mobile */
+    .profile-card {
+        padding: 1.25rem;
+    }
+    
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .profile-photo {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .profile-name {
+        font-size: 1.4rem;
+    }
+    
+    .profile-title {
+        font-size: 0.9rem;
+    }
+    
+    .profile-contact-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .profile-contact {
+        grid-template-columns: 1fr;
+        gap: 0.6rem;
+    }
+    
+    .contact-link {
+        font-size: 0.85rem;
+    }
+    
+    .social-share {
+        justify-content: center;
+    }
+    
+    .share-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 0.9rem;
+    }
+    
+    /* Main Container Mobile */
+    .main-container {
+        padding: 0 1rem;
+        margin: 1rem auto;
+        gap: 1.5rem;
+    }
+    
+    .video-section {
+        gap: 1rem;
+    }
+    
+    /* Resume Sidebar Mobile */
+    .resume-sidebar {
+        padding: 1.25rem;
+    }
+    
+    .resume-content {
+        gap: 1.5rem;
+    }
+    
+    .section-title {
+        font-size: 1.2rem;
+    }
+    
+    .text-content {
+        font-size: 0.9rem;
+    }
+    
+    .modal-content {
+        padding: 1.5rem;
+    }
+    
+    .modal-title {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-content {
+        padding: 0 0.75rem;
+    }
+    
+    .logo {
+        font-size: 1rem;
+    }
+    
+    .btn {
+        font-size: 0.7rem;
+        padding: 0.45rem 0.75rem;
+    }
+    
+    .profile-photo {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .profile-name {
+        font-size: 1.25rem;
+    }
+    
+    .contact-link {
+        font-size: 0.8rem;
+    }
+    
+    .share-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 0.85rem;
+    }
+    
+    .section-title {
+        font-size: 1.1rem;
+    }
+}
+    </style>
 </head>
 <body>
     <!-- Header -->
     <header class="header">
         <div class="header-content">
-            <div class="logo">Mikhail Tiuterev</div>
+            <div class="logo" data-i18n="headerLogo">Interactive CV</div>
             <nav class="nav-buttons">
                 <a href="resume.pdf" download class="btn btn-download" data-analytics="download-cv" aria-label="Download CV">
                     <i class="fas fa-download"></i> <span data-i18n="downloadCV">DOWNLOAD PDF</span>
@@ -119,7 +837,7 @@
                 </video>
             </div>
 
-            <!-- Profile Card -->
+            <!-- Profile Card - ENHANCED -->
             <div class="profile-card">
                 <div class="profile-header">
                     <img src="profile-photo.jpg" alt="Mikhail Tiuterev professional photo" class="profile-photo" loading="lazy">
@@ -130,11 +848,17 @@
                 </div>
                 <div class="profile-contact-row">
                     <div class="profile-contact">
-                        <a href="mailto:mikhail.tiuterev@gmail.com" class="contact-link" data-analytics="email-click" aria-label="Send email">
-                            <i class="fas fa-envelope"></i> mikhail.tiuterev@gmail.com
+                        <a href="https://maps.google.com/?q=Bonn,Germany" target="_blank" class="contact-link" data-analytics="location-click" aria-label="View location">
+                            <i class="fas fa-map-marker-alt"></i> Bonn, Germany
                         </a>
                         <a href="tel:+4915731323284" class="contact-link" data-analytics="phone-click" aria-label="Call phone number">
                             <i class="fas fa-phone"></i> +49 157 31323284
+                        </a>
+                        <a href="https://github.com/miketio" target="_blank" class="contact-link" data-analytics="github-click" aria-label="View GitHub profile">
+                            <i class="fab fa-github"></i> github.com/miketio
+                        </a>
+                        <a href="https://linkedin.com/in/tiuterevmt" target="_blank" class="contact-link" data-analytics="linkedin-click" aria-label="View LinkedIn profile">
+                            <i class="fab fa-linkedin"></i> linkedin.com/in/tiuterevmt
                         </a>
                     </div>
                     
@@ -157,36 +881,9 @@
         <!-- Resume Content -->
         <aside class="resume-sidebar">
             <div class="resume-content">
-                <!-- Contact Information -->
+                <!-- About Me (formerly Professional Summary) -->
                 <section class="resume-section">
-                    <h2 class="section-title" data-i18n="contactTitle">Contact Information</h2>
-                    <div class="contact-grid">
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Bonn 53119, Germany</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <span>+49 157 31323284</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <a href="mailto:mikhail.tiuterev@gmail.com">mikhail.tiuterev@gmail.com</a>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fab fa-linkedin"></i>
-                            <a href="https://linkedin.com/in/tiuterevmt" target="_blank" rel="noopener noreferrer" data-analytics="linkedin-click">linkedin.com/in/tiuterevmt</a>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fab fa-github"></i>
-                            <a href="https://github.com/miketio" target="_blank" rel="noopener noreferrer" data-analytics="github-click">github.com/miketio</a>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Professional Summary -->
-                <section class="resume-section">
-                    <h2 class="section-title" data-i18n="summaryTitle">Professional Summary</h2>
+                    <h2 class="section-title" data-i18n="aboutTitle">About Me</h2>
                     <p class="text-content" data-i18n="summaryText">
                         I'm an applied scientist and physics MSc student who loves taming complex systems with machine learning, 
                         computational modeling, or a touch of clever automation. I believe innovation moves fastest when people 
@@ -295,7 +992,7 @@
         <div class="modal-content">
             <button class="modal-close" id="closeModal" aria-label="Close modal">&times;</button>
             <h2 class="modal-title" data-i18n="modalTitle">Get in Touch</h2>
-            <form class="contact-form" id="contactForm" action="FORM_ACTION_NOT_LOADED" method="POST">
+            <form class="contact-form" id="contactForm" action="https://formspree.io/f/xgvrvaoa" method="POST">
                 <div class="form-group">
                     <label for="name" data-i18n="formName">Full Name</label>
                     <input type="text" id="name" name="name" required>
@@ -313,6 +1010,258 @@
         </div>
     </div>
 
-    <script src="script.js" defer></script>
+    <script>
+// Complete translations with new keys
+const translations = {
+    en: {
+        headerLogo: "Interactive CV",
+        downloadCV: "DOWNLOAD PDF",
+        getInTouch: "GET IN TOUCH",
+        videoNotSupported: "Your browser does not support the video tag.",
+        profileTitle: "University of Bonn Student | Physics MSc",
+        aboutTitle: "About Me",
+        summaryText: "I'm an applied scientist and physics MSc student who loves taming complex systems with machine learning, computational modeling, or a touch of clever automation. I believe innovation moves fastest when people talk plainly, work together turning big questions into small & doable steps. Even in the middle of code or simulations, I try to keep the general goal in my mind.",
+        skillsTitle: "Key Skills & Expertise",
+        skill1: "Machine Learning & Deep Learning (CNN, RNN, Transformers)",
+        skill2: "Reinforcement Learning & Optimization",
+        skill3: "Python (PyTorch, TensorFlow, NumPy, SciPy)",
+        skill4: "Time Series Analysis & Kalman Filters",
+        skill5: "Finite Element Methods & COMSOL",
+        skill6: "Statistical Methods & Monte Carlo Simulations",
+        skill7: "CAD Design (Autodesk, Creo) & Manufacturing",
+        skill8: "Experimental Automation & Control Systems",
+        educationTitle: "Education",
+        edu1Title: "M.Sc. Physics",
+        edu1Org: "University of Bonn, Germany",
+        edu1Date: "Nov 2023 - Apr 2026 (expected)",
+        edu1Detail1: "GPA: 2.2 (IT courses GPA: 1.3)",
+        edu2Title: "B.Sc. Applied Math & Physics",
+        edu2Org: "Saint-Petersburg State University, Russia",
+        edu2Date: "Sep 2019 - Jul 2023",
+        edu2Detail1: "Graduated with distinctions (GPA: 4.9/5.0, Top 1%)",
+        edu2Detail2: "Awarded an academic scholarship",
+        experienceTitle: "Experience",
+        exp1Title: "Aerodynamics Team Member",
+        exp1Org: "GET Racing, Dortmund, Germany",
+        exp1Date: "Jan 2025 - Present",
+        exp1Detail1: "Designed aerodynamic components (Creo) and manufactured carbon-fiber parts",
+        exp1Detail2: "Contributed to a 30% increase in downforce",
+        exp2Title: "Research Assistant",
+        exp2Org: "University of Bonn, Germany",
+        exp2Date: "Aug 2024 - Oct 2024",
+        exp2Detail1: "Automated laser experiment setup with Python/PyQt5 multi-threaded controller",
+        exp2Detail2: "Applied optimization methods (Nelder-Mead, Adam)",
+        competitionsTitle: "Competitions & Achievements",
+        comp1Title: "DeepRacer Cup (Audi & AWS) - Top 20 Finalist",
+        comp1Date: "Aug 2025 - Oct 2025",
+        comp1Detail: "Position 19/400 in autonomous racing with reinforcement learning",
+        comp2Title: "Tech Arena - Huawei (Sweden) - Top 7 Finalist",
+        comp2Date: "Jul 2025 - Aug 2025",
+        comp2Detail: "AI-enabled SVD operator with hybrid CNN & Transformer model",
+        comp3Title: "Tech Arena - Huawei (Nuremberg) - 3rd Place",
+        comp3Date: "Sep 2024 - Jan 2025",
+        comp3Detail: "State-of-Charge estimation using Extended Kalman Filter",
+        comp4Title: "IFM Hackathon 2025 - 1st Place",
+        comp4Detail: "RFID initialization app with SAP BTP integration",
+        modalTitle: "Get in Touch",
+        formName: "Full Name",
+        formEmail: "Email Address",
+        formMessage: "Message",
+        formSubmit: "Send Message"
+    },
+    de: {
+        headerLogo: "Interaktiver Lebenslauf",
+        downloadCV: "PDF HERUNTERLADEN",
+        getInTouch: "KONTAKT AUFNEHMEN",
+        videoNotSupported: "Ihr Browser unterstützt das Video-Tag nicht.",
+        profileTitle: "Universität Bonn Student | Physik MSc",
+        aboutTitle: "Über Mich",
+        summaryText: "Ich bin ein angewandter Wissenschaftler und Physik-MSc-Student, der es liebt, komplexe Systeme mit maschinellem Lernen, computergestützter Modellierung oder etwas cleverer Automatisierung zu bändigen. Ich glaube, dass Innovation am schnellsten voranschreitet, wenn Menschen klar sprechen und zusammenarbeiten, um große Fragen in kleine, machbare Schritte zu verwandeln.",
+        skillsTitle: "Hauptkompetenzen",
+        skill1: "Machine Learning & Deep Learning (CNN, RNN, Transformers)",
+        skill2: "Reinforcement Learning & Optimierung",
+        skill3: "Python (PyTorch, TensorFlow, NumPy, SciPy)",
+        skill4: "Zeitreihenanalyse & Kalman-Filter",
+        skill5: "Finite-Elemente-Methoden & COMSOL",
+        skill6: "Statistische Methoden & Monte-Carlo-Simulationen",
+        skill7: "CAD-Design (Autodesk, Creo) & Fertigung",
+        skill8: "Experimentelle Automatisierung & Steuerungssysteme",
+        educationTitle: "Ausbildung",
+        edu1Title: "M.Sc. Physik",
+        edu1Org: "Universität Bonn, Deutschland",
+        edu1Date: "Nov 2023 - Apr 2026 (voraussichtlich)",
+        edu1Detail1: "Notendurchschnitt: 2,2 (IT-Kurse: 1,3)",
+        edu2Title: "B.Sc. Angewandte Mathematik & Physik",
+        edu2Org: "Sankt-Petersburger Staatsuniversität, Russland",
+        edu2Date: "Sep 2019 - Jul 2023",
+        edu2Detail1: "Abschluss mit Auszeichnung (Notendurchschnitt: 4,9/5,0, Top 1%)",
+        edu2Detail2: "Stipendium erhalten",
+        experienceTitle: "Berufserfahrung",
+        exp1Title: "Aerodynamik-Teammitglied",
+        exp1Org: "GET Racing, Dortmund, Deutschland",
+        exp1Date: "Jan 2025 - Heute",
+        exp1Detail1: "Entwurf aerodynamischer Komponenten (Creo) und Herstellung von Karbonfaserteilen",
+        exp1Detail2: "Beitrag zu einer 30%igen Erhöhung des Abtriebs",
+        exp2Title: "Wissenschaftlicher Mitarbeiter",
+        exp2Org: "Universität Bonn, Deutschland",
+        exp2Date: "Aug 2024 - Okt 2024",
+        exp2Detail1: "Automatisierung des Laser-Experimentaufbaus mit Python/PyQt5",
+        exp2Detail2: "Anwendung von Optimierungsmethoden (Nelder-Mead, Adam)",
+        competitionsTitle: "Wettbewerbe & Erfolge",
+        comp1Title: "DeepRacer Cup (Audi & AWS) - Top 20 Finalist",
+        comp1Date: "Aug 2025 - Okt 2025",
+        comp1Detail: "Platz 19/400 im autonomen Rennen",
+        comp2Title: "Tech Arena - Huawei (Schweden) - Top 7 Finalist",
+        comp2Date: "Jul 2025 - Aug 2025",
+        comp2Detail: "KI-gestützter SVD-Operator",
+        comp3Title: "Tech Arena - Huawei (Nürnberg) - 3. Platz",
+        comp3Date: "Sep 2024 - Jan 2025",
+        comp3Detail: "State-of-Charge-Schätzung",
+        comp4Title: "IFM Hackathon 2025 - 1. Platz",
+        comp4Detail: "RFID-Initialisierungs-App",
+        modalTitle: "Kontakt aufnehmen",
+        formName: "Vollständiger Name",
+        formEmail: "E-Mail-Adresse",
+        formMessage: "Nachricht",
+        formSubmit: "Nachricht senden"
+    }
+};
+
+// Language management
+let currentLanguage = localStorage.getItem('preferredLanguage') || 'en';
+
+function updateLanguage(lang) {
+    currentLanguage = lang;
+    localStorage.setItem('preferredLanguage', lang);
+    document.documentElement.lang = lang;
+    
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                element.placeholder = translations[lang][key];
+            } else {
+                element.textContent = translations[lang][key];
+            }
+        }
+    });
+    
+    document.getElementById('currentLang').textContent = lang.toUpperCase();
+    
+    document.querySelectorAll('.lang-option').forEach(option => {
+        option.classList.remove('active');
+        if (option.getAttribute('data-lang') === lang) {
+            option.classList.add('active');
+        }
+    });
+}
+
+// Dark mode
+const isDarkMode = localStorage.getItem('darkMode') === 'true';
+
+function toggleDarkMode() {
+    const body = document.body;
+    const themeIcon = document.querySelector('#themeToggle i');
+    
+    body.classList.toggle('dark-mode');
+    const isNowDark = body.classList.contains('dark-mode');
+    
+    localStorage.setItem('darkMode', isNowDark);
+    themeIcon.className = isNowDark ? 'fas fa-sun' : 'fas fa-moon';
+}
+
+// Social sharing
+function initSocialSharing() {
+    const pageUrl = encodeURIComponent(window.location.href);
+    const pageTitle = encodeURIComponent(document.title);
+    
+    document.getElementById('shareLinkedIn').addEventListener('click', () => {
+        const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`;
+        window.open(linkedInUrl, '_blank', 'width=600,height=400');
+    });
+    
+    document.getElementById('shareEmail').addEventListener('click', () => {
+        const subject = pageTitle;
+        const body = `I thought you might be interested in this: ${window.location.href}`;
+        window.location.href = `mailto:?subject=${subject}&body=${encodeURIComponent(body)}`;
+    });
+    
+    document.getElementById('copyLink').addEventListener('click', () => {
+        navigator.clipboard.writeText(window.location.href).then(() => {
+            const btn = document.getElementById('copyLink');
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-check"></i>';
+            setTimeout(() => {
+                btn.innerHTML = originalHTML;
+            }, 2000);
+        });
+    });
+}
+
+// Initialize
+document.addEventListener('DOMContentLoaded', () => {
+    if (isDarkMode) {
+        document.body.classList.add('dark-mode');
+        document.querySelector('#themeToggle i').className = 'fas fa-sun';
+    }
+    
+    updateLanguage(currentLanguage);
+    initSocialSharing();
+    
+    // Theme toggle
+    document.getElementById('themeToggle').addEventListener('click', toggleDarkMode);
+    
+    // Language switcher
+    const langBtn = document.getElementById('langBtn');
+    const langDropdown = document.getElementById('langDropdown');
+    
+    langBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        langDropdown.classList.toggle('active');
+    });
+    
+    document.querySelectorAll('.lang-option').forEach(option => {
+        option.addEventListener('click', () => {
+            const lang = option.getAttribute('data-lang');
+            updateLanguage(lang);
+            langDropdown.classList.remove('active');
+        });
+    });
+    
+    document.addEventListener('click', () => {
+        langDropdown.classList.remove('active');
+    });
+    
+    // Modal functionality
+    const contactBtn = document.getElementById('contactBtn');
+    const contactModal = document.getElementById('contactModal');
+    const closeModal = document.getElementById('closeModal');
+    
+    const openModalFunc = () => {
+        contactModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    };
+    
+    const closeModalFunc = () => {
+        contactModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    };
+    
+    contactBtn.addEventListener('click', openModalFunc);
+    closeModal.addEventListener('click', closeModalFunc);
+    
+    contactModal.addEventListener('click', (e) => {
+        if (e.target === contactModal) {
+            closeModalFunc();
+        }
+    });
+    
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && contactModal.classList.contains('active')) {
+            closeModalFunc();
+        }
+    });
+});
+    </script>
 </body>
 </html>
