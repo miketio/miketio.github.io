@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mikhail Tiuterev - Video Resume | Applied Scientist & ML Engineer</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Mikhail Tiuterev - Applied Scientist and Physics MSc student specializing in Machine Learning, Deep Learning, and Computational Modeling. Top performer in AI competitions.">
+    <meta name="keywords" content="Mikhail Tiuterev, Applied Scientist, Machine Learning, Deep Learning, Physics, AI Engineer, Reinforcement Learning, Python, PyTorch, TensorFlow">
+    <meta name="author" content="Mikhail Tiuterev">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://miketio.github.io/video-resume/">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Mikhail Tiuterev - Video Resume">
+    <meta property="og:description" content="Applied Scientist specializing in ML, Deep Learning, and Computational Modeling">
+    <meta property="og:url" content="https://miketio.github.io/video-resume/">
+    <meta property="og:image" content="https://miketio.github.io/video-resume/profile-photo.jpg">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mikhail Tiuterev - Video Resume">
+    <meta name="twitter:description" content="Applied Scientist specializing in ML, Deep Learning, and Computational Modeling">
+    <meta name="twitter:image" content="https://miketio.github.io/video-resume/profile-photo.jpg">
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Mikhail Tiuterev",
+      "jobTitle": "Applied Scientist & Physics MSc Student",
+      "email": "mikhail.tiuterev@gmail.com",
+      "telephone": "+4915731323284",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bonn",
+        "postalCode": "53119",
+        "addressCountry": "DE"
+      },
+      "url": "https://github.com/miketio",
+      "sameAs": [
+        "https://linkedin.com/in/tiuterevmt",
+        "https://github.com/miketio"
+      ],
+      "alumniOf": [
+        {
+          "@type": "EducationalOrganization",
+          "name": "University of Bonn"
+        },
+        {
+          "@type": "EducationalOrganization",
+          "name": "Saint-Petersburg State University"
+        }
+      ],
+      "knowsAbout": ["Machine Learning", "Deep Learning", "Physics", "Python", "TensorFlow", "PyTorch"]
+    }
+    </script>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Analytics (loaded via config file) -->
+    <script src="config.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=CONFIG_NOT_LOADED"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        if (window.ANALYTICS_ID) {
+            gtag('config', window.ANALYTICS_ID);
+        }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">Mikhail Tiuterev</div>
+            <nav class="nav-buttons">
+                <a href="resume.pdf" download class="btn btn-download" data-analytics="download-cv" aria-label="Download CV">
+                    <i class="fas fa-download"></i> <span data-i18n="downloadCV">DOWNLOAD PDF</span>
+                </a>
+                <button class="btn btn-contact" id="contactBtn" data-analytics="open-contact" aria-label="Open contact form">
+                    <i class="fas fa-paper-plane"></i> <span data-i18n="getInTouch">GET IN TOUCH</span>
+                </button>
+                <button class="btn btn-theme" id="themeToggle" title="Toggle Dark Mode" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="language-switcher">
+                    <button class="language-btn" id="langBtn" aria-label="Change language">
+                        <i class="fas fa-globe"></i>
+                        <span id="currentLang">EN</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="language-dropdown" id="langDropdown">
+                        <button class="lang-option" data-lang="en">🇬🇧 English</button>
+                        <button class="lang-option" data-lang="de">🇩🇪 Deutsch</button>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <!-- Video Section -->
+        <section class="video-section">
+            <div class="video-wrapper">
+                <video id="videoPlayer" controls preload="metadata" poster="poster.jpg" data-analytics="video" aria-label="Video resume of Mikhail Tiuterev">
+                    <source src="YOUR_VIDEO.mp4" type="video/mp4">
+                    <span data-i18n="videoNotSupported">Your browser does not support the video tag.</span>
+                </video>
+            </div>
+
+            <!-- Profile Card -->
+            <div class="profile-card">
+                <div class="profile-header">
+                    <img src="profile-photo.jpg" alt="Mikhail Tiuterev professional photo" class="profile-photo" loading="lazy">
+                    <div class="profile-info">
+                        <h1 class="profile-name">Mikhail Tiuterev</h1>
+                        <p class="profile-title" data-i18n="profileTitle">Applied Scientist & Physics MSc Student</p>
+                        <p class="profile-subtitle" data-i18n="profileSubtitle">Machine Learning & Computational Modeling</p>
+                    </div>
+                </div>
+                <div class="profile-contact">
+                    <a href="mailto:mikhail.tiuterev@gmail.com" class="contact-link" data-analytics="email-click" aria-label="Send email">
+                        <i class="fas fa-envelope"></i> mikhail.tiuterev@gmail.com
+                    </a>
+                    <a href="tel:+4915731323284" class="contact-link" data-analytics="phone-click" aria-label="Call phone number">
+                        <i class="fas fa-phone"></i> +49 157 31323284
+                    </a>
+                </div>
+                
+                <!-- Social Share Buttons -->
+                <div class="social-share">
+                    <button class="share-btn" id="shareLinkedIn" title="Share on LinkedIn" aria-label="Share on LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </button>
+                    <button class="share-btn" id="shareTwitter" title="Share on Twitter" aria-label="Share on Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </button>
+                    <button class="share-btn" id="shareEmail" title="Share via Email" aria-label="Share via email">
+                        <i class="fas fa-envelope"></i>
+                    </button>
+                    <button class="share-btn" id="copyLink" title="Copy Link" aria-label="Copy link to clipboard">
+                        <i class="fas fa-link"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resume Content -->
+        <aside class="resume-sidebar">
+            <div class="resume-content">
+                <!-- Contact Information -->
+                <section class="resume-section">
+                    <h2 class="section-title" data-i18n="contactTitle">Contact Information</h2>
+                    <div class="contact-grid">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Bonn 53119, Germany</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+49 157 31323284</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:mikhail.tiuterev@gmail.com">mikhail.tiuterev@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-linkedin"></i>
+                            <a href="https://linkedin.com/in/tiuterevmt" target="_blank" rel="noopener noreferrer" data-analytics="linkedin-click">linkedin.com/in/tiuterevmt</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-github"></i>
+                            <a href="https://github.com/miketio" target="_blank" rel="noopener noreferrer" data-analytics="github-click">github.com/miketio</a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Professional Summary -->
+                <section class="resume-section">
+                    <h2 class="section-title" data-i18n="summaryTitle">Professional Summary</h2>
+                    <p class="text-content" data-i18n="summaryText">
+                        I'm an applied scientist and physics MSc student who loves taming complex systems with machine learning, 
+                        computational modeling, or a touch of clever automation. I believe innovation moves fastest when people 
+                        talk plainly, work together turning big questions into small & doable steps. Even in the middle of code 
+                        or simulations, I try to keep the general goal in my mind.
+                    </p>
+                </section>
+
+                <!-- Key Skills & Expertise -->
+                <section class="resume-section">
+                    <h2 class="section-title" data-i18n="skillsTitle">Key Skills & Expertise</h2>
+                    <ul class="skills-list">
+                        <li data-i18n="skill1">Machine Learning & Deep Learning (CNN, RNN, Transformers)</li>
+                        <li data-i18n="skill2">Reinforcement Learning & Optimization</li>
+                        <li data-i18n="skill3">Python (PyTorch, TensorFlow, NumPy, SciPy)</li>
+                        <li data-i18n="skill4">Time Series Analysis & Kalman Filters</li>
+                        <li data-i18n="skill5">Finite Element Methods & COMSOL</li>
+                        <li data-i18n="skill6">Statistical Methods & Monte Carlo Simulations</li>
+                        <li data-i18n="skill7">CAD Design (Autodesk, Creo) & Manufacturing</li>
+                        <li data-i18n="skill8">Experimental Automation & Control Systems</li>
+                    </ul>
+                </section>
+
+                <!-- Education -->
+                <section class="resume-section">
+                    <h2 class="section-title" data-i18n="educationTitle">Education</h2>
+                    <div class="timeline-item">
+                        <h3 class="item-title" data-i18n="edu1Title">M.Sc. Physics</h3>
+                        <p class="item-subtitle" data-i18n="edu1Org">University of Bonn, Germany</p>
+                        <p class="item-date" data-i18n="edu1Date">Nov 2023 - Apr 2026 (expected)</p>
+                        <ul class="item-details">
+                            <li data-i18n="edu1Detail1">GPA: 2.2 (IT courses GPA: 1.3)</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item">
+                        <h3 class="item-title" data-i18n="edu2Title">B.Sc. Applied Math & Physics</h3>
+                        <p class="item-subtitle" data-i18n="edu2Org">Saint-Petersburg State University, Russia</p>
+                        <p class="item-date" data-i18n="edu2Date">Sep 2019 - Jul 2023</p>
+                        <ul class="item-details">
+                            <li data-i18n="edu2Detail1">Graduated with distinctions (GPA: 4.9/5.0, Top 1%)</li>
+                            <li data-i18n="edu2Detail2">Awarded an academic scholarship</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Experience -->
+                <section class="resume-section">
+                    <h2 class="section-title" data-i18n="experienceTitle">Experience</h2>
+                    <div class="timeline-item">
+                        <h3 class="item-title" data-i18n="exp1Title">Aerodynamics Team Member</h3>
+                        <p class="item-subtitle" data-i18n="exp1Org">GET Racing, Dortmund, Germany</p>
+                        <p class="item-date" data-i18n="exp1Date">Jan 2025 - Present</p>
+                        <ul class="item-details">
+                            <li data-i18n="exp1Detail1">Designed aerodynamic components (Creo) and manufactured carbon-fiber parts</li>
+                            <li data-i18n="exp1Detail2">Contributed to a 30% increase in downforce</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item">
+                        <h3 class="item-title" data-i18n="exp2Title">Research Assistant</h3>
+                        <p class="item-subtitle" data-i18n="exp2Org">University of Bonn, Germany</p>
+                        <p class="item-date" data-i18n="exp2Date">Aug 2024 - Oct 2024</p>
+                        <ul class="item-details">
+                            <li data-i18n="exp2Detail1">Automated laser experiment setup with Python/PyQt5 multi-threaded controller</li>
+                            <li data-i18n="exp2Detail2">Applied optimization methods (Nelder-Mead, Adam)</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Competitions -->
+                <section class="resume-section">
+                    <h2 class="section-title" data-i18n="competitionsTitle">Competitions & Achievements</h2>
+                    <div class="timeline-item">
+                        <h3 class="item-title" data-i18n="comp1Title">DeepRacer Cup (Audi & AWS) - Top 20 Finalist</h3>
+                        <p class="item-date" data-i18n="comp1Date">Aug 2025 - Oct 2025</p>
+                        <ul class="item-details">
+                            <li data-i18n="comp1Detail">Position 19/400 in autonomous racing with reinforcement learning</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item">
+                        <h3 class="item-title" data-i18n="comp2Title">Tech Arena - Huawei (Sweden) - Top 7 Finalist</h3>
+                        <p class="item-date" data-i18n="comp2Date">Jul 2025 - Aug 2025</p>
+                        <ul class="item-details">
+                            <li data-i18n="comp2Detail">AI-enabled SVD operator with hybrid CNN & Transformer model</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item">
+                        <h3 class="item-title" data-i18n="comp3Title">Tech Arena - Huawei (Nuremberg) - 3rd Place</h3>
+                        <p class="item-date" data-i18n="comp3Date">Sep 2024 - Jan 2025</p>
+                        <ul class="item-details">
+                            <li data-i18n="comp3Detail">State-of-Charge estimation using Extended Kalman Filter</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item">
+                        <h3 class="item-title" data-i18n="comp4Title">IFM Hackathon 2025 - 1st Place</h3>
+                        <ul class="item-details">
+                            <li data-i18n="comp4Detail">RFID initialization app with SAP BTP integration</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Contact Modal -->
+    <div class="modal" id="contactModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal" aria-label="Close modal">&times;</button>
+            <h2 class="modal-title" data-i18n="modalTitle">Get in Touch</h2>
+            <form class="contact-form" id="contactForm" action="FORM_ACTION_NOT_LOADED" method="POST">
+                <div class="form-group">
+                    <label for="name" data-i18n="formName">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email" data-i18n="formEmail">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message" data-i18n="formMessage">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-submit" data-i18n="formSubmit">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
