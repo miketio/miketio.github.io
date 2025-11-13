@@ -56,7 +56,7 @@ const translations = {
         downloadCV: "DOWNLOAD PDF",
         getInTouch: "GET IN TOUCH",
         videoNotSupported: "Your browser does not support the video tag.",
-        profileTitle: "Applied Scientist & Physics MSc Student",
+        profileTitle: "University of Bonn Student | Physics MSc",
         profileSubtitle: "Machine Learning & Computational Modeling",
         contactTitle: "Contact Information",
         summaryTitle: "Professional Summary",
@@ -113,8 +113,7 @@ const translations = {
         downloadCV: "PDF HERUNTERLADEN",
         getInTouch: "KONTAKT AUFNEHMEN",
         videoNotSupported: "Ihr Browser unterstützt das Video-Tag nicht.",
-        profileTitle: "Angewandter Wissenschaftler & Physik MSc Student",
-        profileSubtitle: "Machine Learning & Computational Modeling",
+        profileTitle: "Universität Bonn Student | Physik MSc",
         contactTitle: "Kontaktinformationen",
         summaryTitle: "Berufliches Profil",
         summaryText: "Ich bin ein angewandter Wissenschaftler und Physik-MSc-Student, der es liebt, komplexe Systeme mit maschinellem Lernen, computergestützter Modellierung oder etwas cleverer Automatisierung zu bändigen. Ich glaube, dass Innovation am schnellsten voranschreitet, wenn Menschen klar sprechen und zusammenarbeiten, um große Fragen in kleine, machbare Schritte zu verwandeln. Selbst mitten im Code oder in Simulationen versuche ich, das allgemeine Ziel im Blick zu behalten.",
@@ -219,20 +218,12 @@ function toggleDarkMode() {
 function initSocialSharing() {
     const pageUrl = encodeURIComponent(window.location.href);
     const pageTitle = encodeURIComponent(document.title);
-    const pageDescription = encodeURIComponent("Check out Mikhail Tiuterev's video resume - Applied Scientist & ML Engineer");
     
     // LinkedIn Share
     document.getElementById('shareLinkedIn').addEventListener('click', () => {
         const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`;
         window.open(linkedInUrl, '_blank', 'width=600,height=400');
         Analytics.track('social_share', { platform: 'linkedin' });
-    });
-    
-    // Twitter Share
-    document.getElementById('shareTwitter').addEventListener('click', () => {
-        const twitterUrl = `https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`;
-        window.open(twitterUrl, '_blank', 'width=600,height=400');
-        Analytics.track('social_share', { platform: 'twitter' });
     });
     
     // Email Share
