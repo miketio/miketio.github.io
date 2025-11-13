@@ -114,6 +114,16 @@ const translations = {
     }
 };
 
+// Google Analytics Event Tracking
+function trackEvent(eventName, eventCategory, eventLabel) {
+    if (typeof gtag !== 'undefined') {
+        gtag('event', eventName, {
+            'event_category': eventCategory,
+            'event_label': eventLabel
+        });
+    }
+}
+
 // Language management
 let currentLanguage = localStorage.getItem('preferredLanguage') || 'en';
 
@@ -141,6 +151,9 @@ function updateLanguage(lang) {
             option.classList.add('active');
         }
     });
+    
+    // Track language change
+    trackEvent('language_change', 'Settings', lang);
 }
 
 // Dark mode
@@ -155,6 +168,9 @@ function toggleDarkMode() {
     
     localStorage.setItem('darkMode', isNowDark);
     themeIcon.className = isNowDark ? 'fas fa-sun' : 'fas fa-moon';
+    
+    // Track theme change
+    trackEvent('theme_change', 'Settings', isNowDark ? 'dark' : 'light');
 }
 
 // Copy to clipboard helper
@@ -165,6 +181,9 @@ function copyToClipboard(text, buttonElement) {
         setTimeout(() => {
             buttonElement.innerHTML = originalHTML;
         }, 2000);
+        
+        // Track copy action
+        trackEvent('copy_to_clipboard', 'Interaction', text.substring(0, 20));
     }).catch(err => {
         console.error('Failed to copy:', err);
         alert('Failed to copy to clipboard');
@@ -176,27 +195,133 @@ function initSocialSharing() {
     // LinkedIn - Redirect to profile
     document.getElementById('shareLinkedIn').addEventListener('click', () => {
         window.open('https://linkedin.com/in/tiuterevmt', '_blank');
+        trackEvent('social_click', 'Social', 'LinkedIn');
     });
     
     // GitHub - Redirect to profile
     document.getElementById('shareGitHub').addEventListener('click', () => {
         window.open('https://github.com/miketio', '_blank');
+        trackEvent('social_click', 'Social', 'GitHub');
     });
     
     // Phone - Copy phone number
     document.getElementById('copyPhone').addEventListener('click', (e) => {
         const phoneNumber = '+4915731323284';
         copyToClipboard(phoneNumber, e.currentTarget);
+        trackEvent('contact_action', 'Contact', 'Phone Copy');
     });
     
     // Copy Link - Copy current page URL
     document.getElementById('copyLink').addEventListener('click', (e) => {
         copyToClipboard(window.location.href, e.currentTarget);
+        trackEvent('share_action', 'Social', 'Copy Link');
+    });
+}
+
+// Contact Form with Formspree
+function initContactForm() {
+    const form = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+    const modal = document.getElementById('contactModal');
+    
+    // Set form action from config
+    const formEndpoint = window.FORMSPREE_ENDPOINT || 'https://formspree.io/f/xgvrvaoa';
+    form.setAttribute('action', formEndpoint);
+    
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const formData = new FormData(form);
+        const submitButton = form.querySelector('.btn-submit');
+        const originalText = submitButton.textContent;
+        
+        // Disable button and show loading state
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending...';
+        
+        try {
+            const response = await fetch(formEndpoint, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            if (response.ok) {
+                formStatus.innerHTML = '<p style="color: #27ae60; margin-top: 1rem;">✓ Message sent successfully!</p>';
+                form.reset();
+                
+                // Track successful form submission
+                trackEvent('form_submit', 'Contact', 'Success');
+                
+                // Close modal after 2 seconds
+                setTimeout(() => {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                    formStatus.innerHTML = '';
+                }, 2000);
+            } else {
+                throw new Error('Form submission failed');
+            }
+        } catch (error) {
+            formStatus.innerHTML = '<p style="color: #e74c3c; margin-top: 1rem;">✗ Failed to send message. Please try again.</p>';
+            
+            // Track failed form submission
+            trackEvent('form_submit', 'Contact', 'Error');
+        } finally {
+            submitButton.disabled = false;
+            submitButton.textContent = originalText;
+        }
+    });
+}
+
+// Video Analytics
+function initVideoTracking() {
+    const video = document.getElementById('videoPlayer');
+    let videoPlayed = false;
+    let video25 = false;
+    let video50 = false;
+    let video75 = false;
+    
+    video.addEventListener('play', () => {
+        if (!videoPlayed) {
+            trackEvent('video_play', 'Video', 'Started');
+            videoPlayed = true;
+        }
+    });
+    
+    video.addEventListener('pause', () => {
+        trackEvent('video_pause', 'Video', 'Paused');
+    });
+    
+    video.addEventListener('ended', () => {
+        trackEvent('video_complete', 'Video', 'Completed');
+    });
+    
+    video.addEventListener('timeupdate', () => {
+        const percent = (video.currentTime / video.duration) * 100;
+        
+        if (percent >= 25 && !video25) {
+            trackEvent('video_progress', 'Video', '25%');
+            video25 = true;
+        }
+        if (percent >= 50 && !video50) {
+            trackEvent('video_progress', 'Video', '50%');
+            video50 = true;
+        }
+        if (percent >= 75 && !video75) {
+            trackEvent('video_progress', 'Video', '75%');
+            video75 = true;
+        }
     });
 }
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
+    // Track page view
+    trackEvent('page_view', 'Engagement', 'Initial Load');
+    
     // Apply saved dark mode preference
     if (isDarkMode) {
         document.body.classList.add('dark-mode');
@@ -206,11 +331,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // Apply saved language
     updateLanguage(currentLanguage);
     
-    // Initialize social sharing
+    // Initialize all features
     initSocialSharing();
+    initContactForm();
+    initVideoTracking();
     
     // Theme toggle
     document.getElementById('themeToggle').addEventListener('click', toggleDarkMode);
+    
+    // Track download button click
+    document.querySelector('[data-analytics="download-cv"]').addEventListener('click', () => {
+        trackEvent('download_cv', 'Downloads', 'PDF Resume');
+    });
     
     // Language switcher
     const langBtn = document.getElementById('langBtn');
@@ -241,11 +373,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const openModalFunc = () => {
         contactModal.classList.add('active');
         document.body.style.overflow = 'hidden';
+        trackEvent('modal_open', 'Interaction', 'Contact Form');
     };
     
     const closeModalFunc = () => {
         contactModal.classList.remove('active');
         document.body.style.overflow = 'auto';
+        trackEvent('modal_close', 'Interaction', 'Contact Form');
     };
     
     contactBtn.addEventListener('click', openModalFunc);

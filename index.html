@@ -9,6 +9,18 @@
     <meta name="keywords" content="Mikhail Tiuterev, Applied Scientist, Machine Learning, Deep Learning, Physics, AI Engineer, Reinforcement Learning, Python, PyTorch, TensorFlow">
     <meta name="author" content="Mikhail Tiuterev">
     
+    <!-- Load config first -->
+    <script src="config.js"></script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-E89R47FNDF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', window.ANALYTICS_ID || 'G-E89R47FNDF');
+    </script>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -198,7 +210,7 @@
         <div class="modal-content">
             <button class="modal-close" id="closeModal" aria-label="Close modal">&times;</button>
             <h2 class="modal-title" data-i18n="modalTitle">Get in Touch</h2>
-            <form class="contact-form" id="contactForm" action="https://formspree.io/f/xgvrvaoa" method="POST">
+            <form class="contact-form" id="contactForm" method="POST">
                 <div class="form-group">
                     <label for="name" data-i18n="formName">Full Name</label>
                     <input type="text" id="name" name="name" required>
@@ -213,6 +225,7 @@
                 </div>
                 <button type="submit" class="btn btn-submit" data-i18n="formSubmit">Send Message</button>
             </form>
+            <div id="formStatus" class="form-status"></div>
         </div>
     </div>
 
