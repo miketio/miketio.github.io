@@ -1,65 +1,12 @@
-// Video Resume Interactive Script with Analytics, Dark Mode, and Language Support
-
-// ============= CONFIGURATION LOADING =============
-// Load sensitive config from external file
-let ANALYTICS_ID = '';
-let FORMSPREE_ENDPOINT = '';
-
-// Try to load config
-if (window.ANALYTICS_ID) {
-    ANALYTICS_ID = window.ANALYTICS_ID;
-}
-if (window.FORMSPREE_ENDPOINT) {
-    FORMSPREE_ENDPOINT = window.FORMSPREE_ENDPOINT;
-    document.getElementById('contactForm').action = FORMSPREE_ENDPOINT;
-}
-
-// ============= ANALYTICS SETUP =============
-const Analytics = {
-    track: function(eventName, eventData = {}) {
-        if (ANALYTICS_ID && typeof gtag !== 'undefined') {
-            gtag('event', eventName, eventData);
-        }
-        console.log('Analytics Event:', eventName, eventData);
-    },
-    
-    trackPageView: function() {
-        if (ANALYTICS_ID && typeof gtag !== 'undefined') {
-            gtag('event', 'page_view', {
-                page_title: document.title,
-                page_location: window.location.href
-            });
-        }
-    },
-    
-    trackVideoEvent: function(action, time) {
-        this.track('video_interaction', {
-            action: action,
-            video_time: time
-        });
-    },
-    
-    trackClick: function(element) {
-        const analyticsLabel = element.getAttribute('data-analytics');
-        if (analyticsLabel) {
-            this.track('click', {
-                element: analyticsLabel,
-                text: element.textContent.trim()
-            });
-        }
-    }
-};
-
-// ============= COMPLETE TRANSLATIONS =============
+// Complete translations
 const translations = {
     en: {
+        headerLogo: "Interactive CV",
         downloadCV: "DOWNLOAD PDF",
         getInTouch: "GET IN TOUCH",
         videoNotSupported: "Your browser does not support the video tag.",
         profileTitle: "University of Bonn Student | Physics MSc",
-        profileSubtitle: "Machine Learning & Computational Modeling",
-        contactTitle: "Contact Information",
-        summaryTitle: "Professional Summary",
+        aboutTitle: "About Me",
         summaryText: "I'm an applied scientist and physics MSc student who loves taming complex systems with machine learning, computational modeling, or a touch of clever automation. I believe innovation moves fastest when people talk plainly, work together turning big questions into small & doable steps. Even in the middle of code or simulations, I try to keep the general goal in my mind.",
         skillsTitle: "Key Skills & Expertise",
         skill1: "Machine Learning & Deep Learning (CNN, RNN, Transformers)",
@@ -110,13 +57,13 @@ const translations = {
         formSubmit: "Send Message"
     },
     de: {
+        headerLogo: "Interaktiver Lebenslauf",
         downloadCV: "PDF HERUNTERLADEN",
         getInTouch: "KONTAKT AUFNEHMEN",
         videoNotSupported: "Ihr Browser unterstützt das Video-Tag nicht.",
         profileTitle: "Universität Bonn Student | Physik MSc",
-        contactTitle: "Kontaktinformationen",
-        summaryTitle: "Berufliches Profil",
-        summaryText: "Ich bin ein angewandter Wissenschaftler und Physik-MSc-Student, der es liebt, komplexe Systeme mit maschinellem Lernen, computergestützter Modellierung oder etwas cleverer Automatisierung zu bändigen. Ich glaube, dass Innovation am schnellsten voranschreitet, wenn Menschen klar sprechen und zusammenarbeiten, um große Fragen in kleine, machbare Schritte zu verwandeln. Selbst mitten im Code oder in Simulationen versuche ich, das allgemeine Ziel im Blick zu behalten.",
+        aboutTitle: "Über Mich",
+        summaryText: "Ich bin ein angewandter Wissenschaftler und Physik-MSc-Student, der es liebt, komplexe Systeme mit maschinellem Lernen, computergestützter Modellierung oder etwas cleverer Automatisierung zu bändigen. Ich glaube, dass Innovation am schnellsten voranschreitet, wenn Menschen klar sprechen und zusammenarbeiten, um große Fragen in kleine, machbare Schritte zu verwandeln.",
         skillsTitle: "Hauptkompetenzen",
         skill1: "Machine Learning & Deep Learning (CNN, RNN, Transformers)",
         skill2: "Reinforcement Learning & Optimierung",
@@ -145,20 +92,20 @@ const translations = {
         exp2Title: "Wissenschaftlicher Mitarbeiter",
         exp2Org: "Universität Bonn, Deutschland",
         exp2Date: "Aug 2024 - Okt 2024",
-        exp2Detail1: "Automatisierung des Laser-Experimentaufbaus mit Python/PyQt5 Multi-Thread-Controller",
+        exp2Detail1: "Automatisierung des Laser-Experimentaufbaus mit Python/PyQt5",
         exp2Detail2: "Anwendung von Optimierungsmethoden (Nelder-Mead, Adam)",
         competitionsTitle: "Wettbewerbe & Erfolge",
         comp1Title: "DeepRacer Cup (Audi & AWS) - Top 20 Finalist",
         comp1Date: "Aug 2025 - Okt 2025",
-        comp1Detail: "Platz 19/400 im autonomen Rennen mit Reinforcement Learning",
+        comp1Detail: "Platz 19/400 im autonomen Rennen",
         comp2Title: "Tech Arena - Huawei (Schweden) - Top 7 Finalist",
         comp2Date: "Jul 2025 - Aug 2025",
-        comp2Detail: "KI-gestützter SVD-Operator mit hybridem CNN- & Transformer-Modell",
+        comp2Detail: "KI-gestützter SVD-Operator",
         comp3Title: "Tech Arena - Huawei (Nürnberg) - 3. Platz",
         comp3Date: "Sep 2024 - Jan 2025",
-        comp3Detail: "State-of-Charge-Schätzung mit erweitertem Kalman-Filter",
+        comp3Detail: "State-of-Charge-Schätzung",
         comp4Title: "IFM Hackathon 2025 - 1. Platz",
-        comp4Detail: "RFID-Initialisierungs-App mit SAP BTP-Integration",
+        comp4Detail: "RFID-Initialisierungs-App",
         modalTitle: "Kontakt aufnehmen",
         formName: "Vollständiger Name",
         formEmail: "E-Mail-Adresse",
@@ -167,7 +114,7 @@ const translations = {
     }
 };
 
-// ============= LANGUAGE SWITCHER =============
+// Language management
 let currentLanguage = localStorage.getItem('preferredLanguage') || 'en';
 
 function updateLanguage(lang) {
@@ -194,11 +141,9 @@ function updateLanguage(lang) {
             option.classList.add('active');
         }
     });
-    
-    Analytics.track('language_change', { language: lang });
 }
 
-// ============= DARK MODE =============
+// Dark mode
 const isDarkMode = localStorage.getItem('darkMode') === 'true';
 
 function toggleDarkMode() {
@@ -210,65 +155,64 @@ function toggleDarkMode() {
     
     localStorage.setItem('darkMode', isNowDark);
     themeIcon.className = isNowDark ? 'fas fa-sun' : 'fas fa-moon';
-    
-    Analytics.track('theme_toggle', { theme: isNowDark ? 'dark' : 'light' });
 }
 
-// ============= SOCIAL SHARING =============
+// Copy to clipboard helper
+function copyToClipboard(text, buttonElement) {
+    navigator.clipboard.writeText(text).then(() => {
+        const originalHTML = buttonElement.innerHTML;
+        buttonElement.innerHTML = '<i class="fas fa-check"></i>';
+        setTimeout(() => {
+            buttonElement.innerHTML = originalHTML;
+        }, 2000);
+    }).catch(err => {
+        console.error('Failed to copy:', err);
+        alert('Failed to copy to clipboard');
+    });
+}
+
+// Social sharing
 function initSocialSharing() {
-    const pageUrl = encodeURIComponent(window.location.href);
-    const pageTitle = encodeURIComponent(document.title);
-    
-    // LinkedIn Share
+    // LinkedIn - Redirect to profile
     document.getElementById('shareLinkedIn').addEventListener('click', () => {
-        const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`;
-        window.open(linkedInUrl, '_blank', 'width=600,height=400');
-        Analytics.track('social_share', { platform: 'linkedin' });
+        window.open('https://linkedin.com/in/tiuterevmt', '_blank');
     });
     
-    // Email Share
-    document.getElementById('shareEmail').addEventListener('click', () => {
-        const subject = pageTitle;
-        const body = `I thought you might be interested in this: ${window.location.href}`;
-        window.location.href = `mailto:?subject=${subject}&body=${encodeURIComponent(body)}`;
-        Analytics.track('social_share', { platform: 'email' });
+    // GitHub - Redirect to profile
+    document.getElementById('shareGitHub').addEventListener('click', () => {
+        window.open('https://github.com/miketio', '_blank');
     });
     
-    // Copy Link
-    document.getElementById('copyLink').addEventListener('click', () => {
-        navigator.clipboard.writeText(window.location.href).then(() => {
-            const btn = document.getElementById('copyLink');
-            const originalHTML = btn.innerHTML;
-            btn.innerHTML = '<i class="fas fa-check"></i>';
-            setTimeout(() => {
-                btn.innerHTML = originalHTML;
-            }, 2000);
-            Analytics.track('social_share', { platform: 'copy_link' });
-        });
+    // Phone - Copy phone number
+    document.getElementById('copyPhone').addEventListener('click', (e) => {
+        const phoneNumber = '+4915731323284';
+        copyToClipboard(phoneNumber, e.currentTarget);
+    });
+    
+    // Copy Link - Copy current page URL
+    document.getElementById('copyLink').addEventListener('click', (e) => {
+        copyToClipboard(window.location.href, e.currentTarget);
     });
 }
 
-// ============= MAIN INITIALIZATION =============
+// Initialize
 document.addEventListener('DOMContentLoaded', () => {
-    Analytics.trackPageView();
-    
-    // Initialize dark mode
+    // Apply saved dark mode preference
     if (isDarkMode) {
         document.body.classList.add('dark-mode');
         document.querySelector('#themeToggle i').className = 'fas fa-sun';
     }
     
-    // Initialize language
+    // Apply saved language
     updateLanguage(currentLanguage);
     
     // Initialize social sharing
     initSocialSharing();
     
-    // ===== THEME TOGGLE =====
-    const themeToggle = document.getElementById('themeToggle');
-    themeToggle.addEventListener('click', toggleDarkMode);
+    // Theme toggle
+    document.getElementById('themeToggle').addEventListener('click', toggleDarkMode);
     
-    // ===== LANGUAGE SWITCHER =====
+    // Language switcher
     const langBtn = document.getElementById('langBtn');
     const langDropdown = document.getElementById('langDropdown');
     
@@ -289,22 +233,19 @@ document.addEventListener('DOMContentLoaded', () => {
         langDropdown.classList.remove('active');
     });
     
-    // ===== MODAL FUNCTIONALITY =====
+    // Modal functionality
     const contactBtn = document.getElementById('contactBtn');
     const contactModal = document.getElementById('contactModal');
     const closeModal = document.getElementById('closeModal');
-    const contactForm = document.getElementById('contactForm');
     
     const openModalFunc = () => {
         contactModal.classList.add('active');
         document.body.style.overflow = 'hidden';
-        Analytics.track('modal_open', { modal: 'contact' });
     };
     
     const closeModalFunc = () => {
         contactModal.classList.remove('active');
         document.body.style.overflow = 'auto';
-        Analytics.track('modal_close', { modal: 'contact' });
     };
     
     contactBtn.addEventListener('click', openModalFunc);
@@ -321,111 +262,4 @@ document.addEventListener('DOMContentLoaded', () => {
             closeModalFunc();
         }
     });
-    
-    // ===== FORM SUBMISSION =====
-    contactForm.addEventListener('submit', (e) => {
-        if (!FORMSPREE_ENDPOINT) {
-            e.preventDefault();
-            alert('Contact form is not configured. Please add your Formspree endpoint.');
-            return;
-        }
-        
-        Analytics.track('form_submit', {
-            form: 'contact'
-        });
-    });
-    
-    // ===== VIDEO PLAYER ANALYTICS =====
-    const videoPlayer = document.getElementById('videoPlayer');
-    let videoStarted = false;
-    let videoWatchTime = 0;
-    let videoInterval;
-    
-    videoPlayer.addEventListener('play', () => {
-        if (!videoStarted) {
-            Analytics.trackVideoEvent('start', 0);
-            videoStarted = true;
-        } else {
-            Analytics.trackVideoEvent('resume', videoPlayer.currentTime);
-        }
-        
-        videoInterval = setInterval(() => {
-            videoWatchTime++;
-        }, 1000);
-    });
-    
-    videoPlayer.addEventListener('pause', () => {
-        Analytics.trackVideoEvent('pause', videoPlayer.currentTime);
-        clearInterval(videoInterval);
-    });
-    
-    videoPlayer.addEventListener('ended', () => {
-        Analytics.trackVideoEvent('complete', videoPlayer.duration);
-        clearInterval(videoInterval);
-    });
-    
-    videoPlayer.addEventListener('seeked', () => {
-        Analytics.trackVideoEvent('seek', videoPlayer.currentTime);
-    });
-    
-    // ===== ANALYTICS TRACKING FOR LINKS =====
-    document.querySelectorAll('[data-analytics]').forEach(element => {
-        element.addEventListener('click', () => {
-            Analytics.trackClick(element);
-        });
-    });
-    
-    // ===== SECTION ANIMATION ON SCROLL =====
-    const sectionObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    });
-    
-    document.querySelectorAll('.resume-section').forEach(section => {
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(20px)';
-        section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        sectionObserver.observe(section);
-    });
-    
-    // ===== TIMELINE HOVER EFFECTS =====
-    document.querySelectorAll('.timeline-item').forEach(item => {
-        item.addEventListener('mouseenter', function() {
-            this.style.borderLeftColor = 'var(--secondary-color)';
-        });
-        
-        item.addEventListener('mouseleave', function() {
-            this.style.borderLeftColor = 'var(--accent-color)';
-        });
-    });
-    
-    // ===== TRACK TIME ON PAGE =====
-    let timeOnPage = 0;
-    setInterval(() => {
-        timeOnPage++;
-        if (timeOnPage % 30 === 0) {
-            Analytics.track('engagement', {
-                time_on_page: timeOnPage,
-                video_watch_time: videoWatchTime
-            });
-        }
-    }, 1000);
-    
-    // ===== PAGE VISIBILITY TRACKING =====
-    document.addEventListener('visibilitychange', () => {
-        if (document.hidden) {
-            Analytics.track('page_hidden', { time_on_page: timeOnPage });
-        } else {
-            Analytics.track('page_visible', { time_on_page: timeOnPage });
-        }
-    });
-    
-    console.log('Video Resume page loaded successfully');
 });
