@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mikhail Tiuterev - Video Resume | Applied Scientist & ML Engineer</title>
     
-    <!-- SEO Meta Tags -->
     <meta name="description" content="Mikhail Tiuterev - Applied Scientist and Physics MSc student specializing in Machine Learning, Deep Learning, and Computational Modeling. Top performer in AI competitions.">
     <meta name="keywords" content="Mikhail Tiuterev, Applied Scientist, Machine Learning, Deep Learning, Physics, AI Engineer, Reinforcement Learning, Python, PyTorch, TensorFlow">
     <meta name="author" content="Mikhail Tiuterev">
@@ -14,7 +13,6 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Header -->
     <header class="header">
         <div class="header-content">
             <div class="logo" data-i18n="headerLogo">Interactive CV</div>
@@ -43,9 +41,7 @@
         </div>
     </header>
 
-    <!-- Main Content -->
     <main class="main-container">
-        <!-- Video Section -->
         <section class="video-section">
             <div class="video-wrapper">
                 <video id="videoPlayer" controls preload="metadata" poster="poster.jpg" data-analytics="video" aria-label="Video resume of Mikhail Tiuterev">
@@ -54,26 +50,29 @@
                 </video>
             </div>
 
-            <!-- Profile Card -->
             <div class="profile-card">
+                <!-- Photo is now a direct child -->
+                <img src="profile-photo.jpg" alt="Mikhail Tiuterev professional photo" class="profile-photo" loading="lazy">
+                
+                <!-- Header content (name/title) -->
                 <div class="profile-header">
-                    <img src="profile-photo.jpg" alt="Mikhail Tiuterev professional photo" class="profile-photo" loading="lazy">
                     <div class="profile-info">
                         <h1 class="profile-name">Mikhail Tiuterev</h1>
                         <p class="profile-title" data-i18n="profileTitle">University of Bonn Student | Physics MSc</p>
                     </div>
                 </div>
+                
+                <!-- Contact row -->
                 <div class="profile-contact-row">
                     <div class="profile-contact-text">
                         <div class="contact-text-item">
-                            <i class="fas fa-map-marker-alt"></i> Bonn, Germany
+                            <i class="fas fa-map-marker-alt"></i> 53119 Bonn, Germany
                         </div>
                         <div class="contact-text-item">
-                            <i class="fas fa-envelope"></i> mikhail@example.com
+                            <i class="fas fa-envelope"></i> mikhail.tiuterev@gmail.com
                         </div>
                     </div>
                     
-                    <!-- Social Share Buttons -->
                     <div class="social-share">
                         <button class="share-btn" id="shareLinkedIn" title="LinkedIn Profile" aria-label="Open LinkedIn profile">
                             <i class="fab fa-linkedin"></i>
@@ -92,10 +91,8 @@
             </div>
         </section>
 
-        <!-- Resume Content -->
         <aside class="resume-sidebar">
             <div class="resume-content">
-                <!-- About Me -->
                 <section class="resume-section">
                     <h2 class="section-title" data-i18n="aboutTitle">About Me</h2>
                     <p class="text-content" data-i18n="summaryText">
@@ -106,7 +103,6 @@
                     </p>
                 </section>
 
-                <!-- Key Skills & Expertise -->
                 <section class="resume-section">
                     <h2 class="section-title" data-i18n="skillsTitle">Key Skills & Expertise</h2>
                     <ul class="skills-list">
@@ -121,7 +117,6 @@
                     </ul>
                 </section>
 
-                <!-- Education -->
                 <section class="resume-section">
                     <h2 class="section-title" data-i18n="educationTitle">Education</h2>
                     <div class="timeline-item">
@@ -143,7 +138,6 @@
                     </div>
                 </section>
 
-                <!-- Experience -->
                 <section class="resume-section">
                     <h2 class="section-title" data-i18n="experienceTitle">Experience</h2>
                     <div class="timeline-item">
@@ -166,7 +160,6 @@
                     </div>
                 </section>
 
-                <!-- Competitions -->
                 <section class="resume-section">
                     <h2 class="section-title" data-i18n="competitionsTitle">Competitions & Achievements</h2>
                     <div class="timeline-item">
@@ -201,7 +194,6 @@
         </aside>
     </main>
 
-    <!-- Contact Modal -->
     <div class="modal" id="contactModal">
         <div class="modal-content">
             <button class="modal-close" id="closeModal" aria-label="Close modal">&times;</button>
