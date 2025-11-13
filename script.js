@@ -231,7 +231,6 @@ function initContactForm() {
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         
-        const formData = new FormData(form);
         const submitButton = form.querySelector('.btn-submit');
         const originalText = submitButton.textContent;
         
@@ -239,12 +238,20 @@ function initContactForm() {
         submitButton.disabled = true;
         submitButton.textContent = 'Sending...';
         
+        // Create JSON object from form data
+        const formData = {
+            name: form.querySelector('#name').value,
+            email: form.querySelector('#email').value,
+            message: form.querySelector('#message').value
+        };
+        
         try {
             const response = await fetch(formEndpoint, {
                 method: 'POST',
-                body: formData,
+                body: JSON.stringify(formData),
                 headers: {
-                    'Accept': 'application/json'
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
                 }
             });
             
@@ -262,9 +269,11 @@ function initContactForm() {
                     formStatus.innerHTML = '';
                 }, 2000);
             } else {
-                throw new Error('Form submission failed');
+                const data = await response.json();
+                throw new Error(data.error || 'Form submission failed');
             }
         } catch (error) {
+            console.error('Form error:', error);
             formStatus.innerHTML = '<p style="color: #e74c3c; margin-top: 1rem;">✗ Failed to send message. Please try again.</p>';
             
             // Track failed form submission
