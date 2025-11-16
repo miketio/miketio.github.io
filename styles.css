@@ -263,7 +263,7 @@ a:hover {
 }
 
 .profile-photo {
-    width: 180px;
+    width: 135px;
     height: 180px;
     border-radius: 8px;
     object-fit: cover;
@@ -678,7 +678,7 @@ a:hover {
     }
 
     .profile-photo {
-        width: 120px;
+        width: 90px;
         height: 120px;
         align-self: center;
         margin-bottom: 0.5rem;
@@ -751,7 +751,7 @@ a:hover {
     }
 
     .profile-photo {
-        width: 100px;
+        width: 75px;
         height: 100px;
         margin-bottom: 0.5rem;
     }
