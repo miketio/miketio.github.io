@@ -22,10 +22,12 @@ export const PROJECTS = [
     techStack: ["Python", "PyTorch", "AWS", "Reinforcement Learning"],
     images: [
       "/deepracer/img1.jpg",
-      "/deepracer/img2.jpg"
+      "/deepracer/img2.jpg",
+      "/deepracer/img3.jpg",
+      "/deepracer/img4.jpg"
     ],
     liveLink: "#",
-    repoLink: "https://github.com/miketio"
+    repoLink: "https://github.com/Piet1848/Bonnfire"
   },
   {
     id: 2,
@@ -34,10 +36,11 @@ export const PROJECTS = [
     techStack: ["Python", "CNN", "Transformers", "Signal Processing"],
     images: [
       "/svd-operator/img1.jpg",
-      "/svd-operator/img2.jpg"
+      "/svd-operator/img2.jpg",
+      "/svd-operator/img3.jpg"
     ],
     liveLink: "#",
-    repoLink: "https://github.com/miketio"
+    repoLink: "https://github.com/miketio/huawei_hackathon_sweden_2025"
   },
   {
     id: 3,
@@ -49,7 +52,7 @@ export const PROJECTS = [
       "/laser-controller/img2.jpg"
     ],
     liveLink: "#",
-    repoLink: "https://github.com/miketio"
+    repoLink: "https://github.com/miketio/ExperimentSoftware"
   },
   {
     id: 4,
@@ -63,7 +66,7 @@ export const PROJECTS = [
       "/battery-soc/img4.jpg"
     ],
     liveLink: "#",
-    repoLink: "https://github.com/miketio"
+    repoLink: "https://github.com/miketio/huawei_hackathon_2024"
   },
   {
     id: 5,
@@ -77,7 +80,7 @@ export const PROJECTS = [
       "/formula-student/img4.jpg"
     ],
     liveLink: "#",
-    repoLink: "https://github.com/miketio"
+    repoLink: "https://www.get-racing.de/"
   },
   {
     id: 6,
@@ -90,7 +93,7 @@ export const PROJECTS = [
       "/rfid-app/vid1.mp4"
     ],
     liveLink: "#",
-    repoLink: "https://github.com/miketio"
+    repoLink: "https://github.com/miketio/huawei_hackathon_sweden_2025"
   }
 ];
 
