@@ -1,8 +1,0 @@
-# robots.txt for Video Resume Site
-
-User-agent: *
-Allow: /
-Disallow: /config.js
-
-# Sitemap location
-Sitemap: https://miketio.github.io/video-resume/sitemap.xml
