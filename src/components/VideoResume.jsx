@@ -1,8 +1,30 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { PlayCircle } from 'lucide-react';
 import { PERSONAL_INFO } from '../data';
+import { useAnalytics } from './GoogleAnalytics';
 
 const VideoResume = () => {
+  const videoRef = useRef(null);
+  const { trackVideoPlay, trackDownload } = useAnalytics();
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const handlePlay = () => {
+      trackVideoPlay();
+    };
+
+    video.addEventListener('play', handlePlay);
+    return () => {
+      video.removeEventListener('play', handlePlay);
+    };
+  }, [trackVideoPlay]);
+
+  const handleDownloadCV = () => {
+    trackDownload('TiuterevCV.pdf');
+  };
+
   return (
     <section id="resume" className="py-24 bg-slate-800/50 border-y border-slate-800">
       <div className="container mx-auto px-6 text-center">
@@ -18,6 +40,7 @@ const VideoResume = () => {
         <div className="max-w-4xl mx-auto bg-slate-900 p-2 rounded-2xl shadow-2xl border border-slate-700">
           <div className="relative pb-[56.25%] h-0 rounded-xl overflow-hidden bg-black">
             <video
+              ref={videoRef}
               controls
               preload="metadata"
               className="absolute top-0 left-0 w-full h-full object-cover"
@@ -33,6 +56,7 @@ const VideoResume = () => {
           <a 
             href="/TiuterevCV.pdf" 
             download 
+            onClick={handleDownloadCV}
             className="text-slate-400 hover:text-white text-sm font-medium transition-colors"
           >
             Download PDF Resume
