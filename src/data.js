@@ -5,8 +5,8 @@ export const PERSONAL_INFO = {
   name: "Mikhail Tiuterev",
   roles: ["Applied Scientist", "ML Engineer", "Physics Researcher"],
   tagline: "Bridging the gap between physical systems and machine learning.",
-  videoResumeUrl: "/my_video_resume.mp4", // Local video file
-  videoPosterUrl: "/video_poster.jpg", // Local poster image file
+  videoResumeUrl: "/my_video_resume.mp4",
+  videoPosterUrl: "/video_poster.jpg",
   socials: {
     github: "https://github.com/miketio",
     linkedin: "https://www.linkedin.com/in/tiuterevmt/",
@@ -26,8 +26,13 @@ export const PROJECTS = [
       "/deepracer/img3.jpg",
       "/deepracer/img4.jpg"
     ],
-    liveLink: "#",
-    repoLink: "https://github.com/Piet1848/Bonnfire"
+    buttons: [
+      {
+        label: "Source Code",
+        link: "https://github.com/Piet1848/Bonnfire",
+        isPrimary: true
+      }
+    ]
   },
   {
     id: 2,
@@ -39,8 +44,13 @@ export const PROJECTS = [
       "/svd-operator/img2.jpg",
       "/svd-operator/img3.jpg"
     ],
-    liveLink: "#",
-    repoLink: "https://github.com/miketio/huawei_hackathon_sweden_2025"
+    buttons: [
+      {
+        label: "View Repository",
+        link: "https://github.com/miketio/huawei_hackathon_sweden_2025",
+        isPrimary: true
+      }
+    ]
   },
   {
     id: 3,
@@ -51,8 +61,13 @@ export const PROJECTS = [
       "/laser-controller/img1.jpg",
       "/laser-controller/img2.jpg"
     ],
-    liveLink: "#",
-    repoLink: "https://github.com/miketio/ExperimentSoftware"
+    buttons: [
+      {
+        label: "View Code",
+        link: "https://github.com/miketio/ExperimentSoftware",
+        isPrimary: true
+      }
+    ]
   },
   {
     id: 4,
@@ -65,8 +80,13 @@ export const PROJECTS = [
       "/battery-soc/img3.jpg",
       "/battery-soc/img4.jpg"
     ],
-    liveLink: "#",
-    repoLink: "https://github.com/miketio/huawei_hackathon_2024"
+    buttons: [
+      {
+        label: "GitHub Repository",
+        link: "https://github.com/miketio/huawei_hackathon_2024",
+        isPrimary: true
+      }
+    ]
   },
   {
     id: 5,
@@ -79,8 +99,13 @@ export const PROJECTS = [
       "/formula-student/img3.jpg",
       "/formula-student/img4.jpg"
     ],
-    liveLink: "#",
-    repoLink: "https://www.get-racing.de/"
+    buttons: [
+      {
+        label: "Visit Team Website",
+        link: "https://www.get-racing.de/",
+        isPrimary: true
+      }
+    ]
   },
   {
     id: 6,
@@ -92,12 +117,16 @@ export const PROJECTS = [
       "/rfid-app/img2.jpg",
       "/rfid-app/vid1.mp4"
     ],
-    liveLink: "#",
-    repoLink: "https://github.com/miketio/huawei_hackathon_sweden_2025"
+    buttons: [
+      {
+        label: "Documentation",
+        link: "https://github.com/ifm/ifm-hackathon-2025-team2",
+        isPrimary: true
+      }
+    ]
   }
 ];
 
-// Export icon components (not JSX elements)
 export const VALUE_PROPS = [
   { icon: Cpu, title: "Scientific Computing", desc: "Modeling physical systems with ML" },
   { icon: Zap, title: "Automation", desc: "Optimizing hardware control loops" },

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight, X, Github, ExternalLink } from 'lucide-react';
+import { ChevronLeft, ChevronRight, X, ExternalLink } from 'lucide-react';
 import { PROJECTS } from '../data';
 import { useAnalytics } from './GoogleAnalytics';
 
@@ -19,10 +19,10 @@ const ProjectModal = ({ project, onClose }) => {
     setCurrentImgIndex((prev) => (prev - 1 + project.images.length) % project.images.length);
   };
 
-  const handleLinkClick = (linkType) => {
+  const handleLinkClick = (buttonLabel) => {
     trackEvent('project_link_click', {
       event_category: 'engagement',
-      event_label: `${project.title} - ${linkType}`,
+      event_label: `${project.title} - ${buttonLabel}`,
     });
   };
 
@@ -122,24 +122,27 @@ const ProjectModal = ({ project, onClose }) => {
               {project.description}
             </p>
 
-            <div className="flex gap-4">
-              <a 
-                href={project.liveLink}
-                onClick={() => handleLinkClick('Live Demo')}
-                className="flex items-center gap-2 px-6 py-2.5 bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg font-medium transition-colors shadow-lg shadow-cyan-500/20"
-              >
-                <ExternalLink size={18} /> View Live
-              </a>
-              <a 
-                href={project.repoLink}
-                onClick={() => handleLinkClick('Source Code')}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-6 py-2.5 bg-slate-700 hover:bg-slate-600 text-white rounded-lg font-medium transition-colors border border-slate-600"
-              >
-                <Github size={18} /> Source Code
-              </a>
-            </div>
+            {/* Render buttons only if they exist */}
+            {project.buttons && project.buttons.length > 0 && (
+              <div className="flex flex-wrap gap-4">
+                {project.buttons.map((button, idx) => (
+                  <a 
+                    key={idx}
+                    href={button.link}
+                    onClick={() => handleLinkClick(button.label)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`flex items-center gap-2 px-6 py-2.5 rounded-lg font-medium transition-colors ${
+                      button.isPrimary
+                        ? 'bg-cyan-500 hover:bg-cyan-600 text-white shadow-lg shadow-cyan-500/20'
+                        : 'bg-slate-700 hover:bg-slate-600 text-white border border-slate-600'
+                    }`}
+                  >
+                    <ExternalLink size={18} /> {button.label}
+                  </a>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -158,7 +161,6 @@ const Projects = () => {
 
   return (
     <section id="projects" className="py-24 bg-slate-950 relative overflow-hidden">
-      {/* Geometric separator */}
       <div className="absolute top-0 w-full h-1 bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent"></div>
       
       <div className="container mx-auto px-6">
@@ -177,7 +179,6 @@ const Projects = () => {
               onClick={() => handleProjectClick(project)}
               className="group bg-slate-800 rounded-xl overflow-hidden cursor-pointer border border-slate-700 shadow-xl shadow-black/40 hover:shadow-cyan-500/20 hover:border-cyan-500/50 transition-all duration-300 hover:-translate-y-2 relative isolate"
             >
-              {/* Glow effect on hover */}
               <div 
                 className="absolute inset-0 bg-gradient-to-br from-cyan-500/0 via-cyan-500/0 to-fuchsia-500/0 group-hover:from-cyan-500/10 group-hover:via-transparent group-hover:to-fuchsia-500/10 transition-opacity duration-500 opacity-0 group-hover:opacity-100 pointer-events-none"
               ></div>
