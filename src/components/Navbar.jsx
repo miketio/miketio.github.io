@@ -21,20 +21,14 @@ const Navbar = () => {
           className="text-xl font-extrabold text-white tracking-widest cursor-pointer" 
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth'})}
         >
-          MIKHAIL<span className="text-cyan-400"> TIUTEREV</span>
+          MIKHAIL<span className="text-cyan-400">.DEV</span>
         </span>
         <div className="hidden md:flex space-x-8 text-sm font-medium text-slate-300">
           {['Home', 'Projects', 'Resume', 'Contact'].map((item) => (
             <button 
               key={item} 
               onClick={() => scrollToSection(item.toLowerCase())}
-              className="hover:text-cyan-400 transition-colors uppercase tracking-wide"
-              style={{
-                transition: 'all 0.3s ease',
-                filter: 'drop-shadow(0 0 0px rgba(45,212,255,0))'
-              }}
-              onMouseEnter={(e) => e.currentTarget.style.filter = 'drop-shadow(0 0 8px rgba(45,212,255,0.5))'}
-              onMouseLeave={(e) => e.currentTarget.style.filter = 'drop-shadow(0 0 0px rgba(45,212,255,0))'}
+              className="hover:text-cyan-400 transition-colors uppercase tracking-wide hover:drop-shadow-[0_0_8px_rgba(45,212,255,0.5)]"
             >
               {item}
             </button>

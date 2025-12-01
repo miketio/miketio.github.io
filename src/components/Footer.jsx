@@ -19,7 +19,7 @@ const Footer = () => {
           {/* GitHub with cyan glow */}
           <button
             onClick={() => handleSocialClick('GitHub', PERSONAL_INFO.socials.github)}
-            className="p-3 bg-slate-800 rounded-full text-slate-400 hover:text-white hover:bg-cyan-600 transition-all duration-300 shadow-lg hover:shadow-cyan-500/50"
+            className="p-3 bg-slate-800 rounded-full text-slate-400 hover:text-white hover:bg-cyan-600 transition-all duration-300 shadow-lg hover:shadow-cyan-500/50 hover:scale-110"
             aria-label="GitHub Profile"
           >
             <Github size={24} />
@@ -27,7 +27,7 @@ const Footer = () => {
           {/* LinkedIn with blue glow */}
           <button
             onClick={() => handleSocialClick('LinkedIn', PERSONAL_INFO.socials.linkedin)}
-            className="p-3 bg-slate-800 rounded-full text-slate-400 hover:text-white hover:bg-blue-600 transition-all duration-300 shadow-lg hover:shadow-blue-500/50"
+            className="p-3 bg-slate-800 rounded-full text-slate-400 hover:text-white hover:bg-blue-600 transition-all duration-300 shadow-lg hover:shadow-blue-500/50 hover:scale-110"
             aria-label="LinkedIn Profile"
           >
             <Linkedin size={24} />
@@ -36,7 +36,7 @@ const Footer = () => {
           <a 
             href={PERSONAL_INFO.socials.email}
             onClick={() => trackSocialClick('Email')}
-            className="p-3 bg-slate-800 rounded-full text-slate-400 hover:text-white hover:bg-fuchsia-600 transition-all duration-300 shadow-lg hover:shadow-fuchsia-500/50"
+            className="p-3 bg-slate-800 rounded-full text-slate-400 hover:text-white hover:bg-fuchsia-600 transition-all duration-300 shadow-lg hover:shadow-fuchsia-500/50 hover:scale-110"
             aria-label="Email"
           >
             <Mail size={24} />

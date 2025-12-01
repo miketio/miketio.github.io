@@ -30,9 +30,8 @@ const VideoResume = () => {
       <div className="container mx-auto px-6 text-center">
         <div className="flex items-center justify-center gap-3 mb-6">
           <PlayCircle 
-            className="text-cyan-400" 
+            className="text-cyan-400 drop-shadow-[0_0_10px_rgba(45,212,255,0.5)]" 
             size={32}
-            style={{filter: 'drop-shadow(0 0 10px rgba(45,212,255,0.5))'}}
           />
           <h2 className="text-3xl md:text-4xl font-bold text-white">Video Resume</h2>
         </div>

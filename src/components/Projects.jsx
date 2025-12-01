@@ -111,7 +111,7 @@ const ProjectModal = ({ project, onClose }) => {
               {project.techStack.map((tech, idx) => (
                 <span 
                   key={idx} 
-                  className="px-3 py-1 bg-slate-700/50 text-cyan-300 text-xs font-medium rounded-full border border-cyan-500/20"
+                  className="px-3 py-1 bg-slate-700/50 text-cyan-300 text-xs font-medium rounded-full border border-cyan-500/20 shadow-inner shadow-cyan-900/50"
                 >
                   {tech}
                 </span>

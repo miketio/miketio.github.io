@@ -59,7 +59,7 @@ const Hero = () => {
             return (
               <div key={idx} className="p-6 rounded-xl bg-slate-800/50 border border-slate-700/50 backdrop-blur-sm shadow-xl shadow-black/30 hover:shadow-cyan-500/15 hover:border-cyan-500/50 transition-all duration-300 group hover:scale-[1.03]">
                 <div className="flex flex-col items-center">
-                  <div className="mb-4 text-cyan-400 group-hover:scale-110 transition-transform" style={{filter: 'drop-shadow(0 0 10px rgba(45,212,255,0))'}}>
+                  <div className="mb-4 text-cyan-400 group-hover:scale-110 transition-transform group-hover:drop-shadow-[0_0_10px_rgba(45,212,255,0.8)]">
                     <IconComponent size={24} />
                   </div>
                   <h3 className="text-white font-semibold mb-1">{prop.title}</h3>
