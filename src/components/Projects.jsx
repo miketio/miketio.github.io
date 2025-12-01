@@ -161,8 +161,18 @@ const Projects = () => {
 
   return (
     <section id="projects" className="py-24 bg-slate-950 relative overflow-hidden">
+      {/* Background Net/Grid Pattern */}
+      <div className="absolute inset-0 pointer-events-none opacity-20">
+        <div 
+          className="w-full h-full"
+          style={{
+            backgroundImage: 'repeating-linear-gradient(0deg, #66768dff 0, #66768dff 1px, transparent 1px, transparent 40px), repeating-linear-gradient(90deg, #66768dff 0, #66768dff 1px, #0F172A 1px, #0F172A 40px)',
+            backgroundSize: '40px 40px'
+          }}
+        />
+      </div>
       <div className="absolute top-0 w-full h-1 bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent"></div>
-      
+
       <div className="container mx-auto px-6">
         <div className="flex flex-col items-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 drop-shadow-md">Featured Projects</h2>
