@@ -21,7 +21,7 @@ const Navbar = () => {
           className="text-xl font-extrabold text-white tracking-widest cursor-pointer" 
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth'})}
         >
-          MIKHAIL<span className="text-cyan-400">.DEV</span>
+          MIKHAIL<span className="text-cyan-400"> TIUTEREV</span>
         </span>
         <div className="hidden md:flex space-x-8 text-sm font-medium text-slate-300">
           {['Home', 'Projects', 'Resume', 'Contact'].map((item) => (
