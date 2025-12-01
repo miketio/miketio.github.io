@@ -31,18 +31,18 @@ const ProjectModal = ({ project, onClose }) => {
 
   return (
     <div 
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/90 backdrop-blur-md" 
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/90 backdrop-blur-xl" 
       onClick={onClose}
     >
       <div 
-        className="bg-slate-800 w-full max-w-4xl rounded-2xl overflow-hidden shadow-2xl border border-slate-700 flex flex-col max-h-[90vh]" 
+        className="bg-slate-800 w-full max-w-4xl rounded-2xl overflow-hidden shadow-2xl border border-cyan-700/50 flex flex-col max-h-[90vh]" 
         onClick={e => e.stopPropagation()}
       >
         <div className="p-4 flex justify-between items-center border-b border-slate-700">
           <h3 className="text-xl font-bold text-white">{project.title}</h3>
           <button 
             onClick={onClose} 
-            className="p-2 hover:bg-slate-700 rounded-full text-slate-400 hover:text-white transition-colors"
+            className="p-2 hover:bg-cyan-900 rounded-full text-slate-400 hover:text-cyan-400 transition-colors"
           >
             <X size={24} />
           </button>
@@ -74,13 +74,13 @@ const ProjectModal = ({ project, onClose }) => {
               <>
                 <button 
                   onClick={prevImage}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 p-2 bg-black/50 hover:bg-emerald-500 text-white rounded-full opacity-0 group-hover:opacity-100 transition-all"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-black/60 hover:bg-cyan-500 text-white rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"
                 >
                   <ChevronLeft size={24} />
                 </button>
                 <button 
                   onClick={nextImage}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 p-2 bg-black/50 hover:bg-emerald-500 text-white rounded-full opacity-0 group-hover:opacity-100 transition-all"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-black/60 hover:bg-cyan-500 text-white rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"
                 >
                   <ChevronRight size={24} />
                 </button>
@@ -93,9 +93,9 @@ const ProjectModal = ({ project, onClose }) => {
                         key={idx} 
                         className={`h-2 rounded-full transition-all ${
                           idx === currentImgIndex 
-                            ? 'bg-emerald-500 w-4' 
+                            ? 'bg-cyan-500 w-4' 
                             : isDot 
-                              ? 'bg-purple-400/70 w-2' 
+                              ? 'bg-fuchsia-400/70 w-2' 
                               : 'bg-white/50 w-2'
                         }`}
                       />
@@ -111,7 +111,7 @@ const ProjectModal = ({ project, onClose }) => {
               {project.techStack.map((tech, idx) => (
                 <span 
                   key={idx} 
-                  className="px-3 py-1 bg-slate-700/50 text-emerald-300 text-xs font-medium rounded-full border border-emerald-500/20"
+                  className="px-3 py-1 bg-slate-700/50 text-cyan-300 text-xs font-medium rounded-full border border-cyan-500/20"
                 >
                   {tech}
                 </span>
@@ -126,7 +126,7 @@ const ProjectModal = ({ project, onClose }) => {
               <a 
                 href={project.liveLink}
                 onClick={() => handleLinkClick('Live Demo')}
-                className="flex items-center gap-2 px-6 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-white rounded-lg font-medium transition-colors"
+                className="flex items-center gap-2 px-6 py-2.5 bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg font-medium transition-colors shadow-lg shadow-cyan-500/20"
               >
                 <ExternalLink size={18} /> View Live
               </a>
@@ -135,7 +135,7 @@ const ProjectModal = ({ project, onClose }) => {
                 onClick={() => handleLinkClick('Source Code')}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-6 py-2.5 bg-slate-700 hover:bg-slate-600 text-white rounded-lg font-medium transition-colors"
+                className="flex items-center gap-2 px-6 py-2.5 bg-slate-700 hover:bg-slate-600 text-white rounded-lg font-medium transition-colors border border-slate-600"
               >
                 <Github size={18} /> Source Code
               </a>
@@ -157,25 +157,33 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-24 bg-slate-900 relative">
+    <section id="projects" className="py-24 bg-slate-950 relative overflow-hidden">
+      {/* Geometric separator */}
+      <div className="absolute top-0 w-full h-1 bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent"></div>
+      
       <div className="container mx-auto px-6">
         <div className="flex flex-col items-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Featured Projects</h2>
-          <div className="w-20 h-1 bg-emerald-500 rounded-full"></div>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 drop-shadow-md">Featured Projects</h2>
+          <div className="w-20 h-1 bg-gradient-to-r from-cyan-400 to-fuchsia-400 rounded-full"></div>
           <p className="text-slate-400 mt-4 text-center max-w-xl">
             A selection of projects demonstrating ML-driven modeling, system automation, and software engineering.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {PROJECTS.map((project) => (
             <div 
               key={project.id}
               onClick={() => handleProjectClick(project)}
-              className="group bg-slate-800 rounded-xl overflow-hidden cursor-pointer border border-slate-700 hover:border-emerald-500/50 hover:shadow-2xl hover:shadow-emerald-500/10 transition-all duration-300 hover:-translate-y-2"
+              className="group bg-slate-800 rounded-xl overflow-hidden cursor-pointer border border-slate-700 shadow-xl shadow-black/40 hover:shadow-cyan-500/20 hover:border-cyan-500/50 transition-all duration-300 hover:-translate-y-2 relative isolate"
             >
+              {/* Glow effect on hover */}
+              <div 
+                className="absolute inset-0 bg-gradient-to-br from-cyan-500/0 via-cyan-500/0 to-fuchsia-500/0 group-hover:from-cyan-500/10 group-hover:via-transparent group-hover:to-fuchsia-500/10 transition-opacity duration-500 opacity-0 group-hover:opacity-100 pointer-events-none"
+              ></div>
+
               <div className="relative h-48 overflow-hidden">
-                <div className="absolute inset-0 bg-slate-900/20 group-hover:bg-transparent transition-colors z-10" />
+                <div className="absolute inset-0 bg-slate-900/20 group-hover:bg-slate-900/5 transition-colors z-10" />
                 <img 
                   src={project.images[0]} 
                   alt={project.title} 
@@ -183,13 +191,13 @@ const Projects = () => {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">
+                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors drop-shadow-sm">
                   {project.title}
                 </h3>
                 <p className="text-slate-400 text-sm mb-4 line-clamp-2">
                   {project.description}
                 </p>
-                <div className="flex items-center text-emerald-500 text-sm font-medium">
+                <div className="flex items-center text-cyan-500 text-sm font-medium group-hover:text-fuchsia-400 transition-colors">
                   View Details <ChevronRight size={16} className="ml-1 group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>

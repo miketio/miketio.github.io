@@ -26,10 +26,14 @@ const VideoResume = () => {
   };
 
   return (
-    <section id="resume" className="py-24 bg-slate-800/50 border-y border-slate-800">
+    <section id="resume" className="py-24 bg-slate-900/50 border-y border-slate-700/30">
       <div className="container mx-auto px-6 text-center">
         <div className="flex items-center justify-center gap-3 mb-6">
-          <PlayCircle className="text-emerald-400" size={32} />
+          <PlayCircle 
+            className="text-cyan-400" 
+            size={32}
+            style={{filter: 'drop-shadow(0 0 10px rgba(45,212,255,0.5))'}}
+          />
           <h2 className="text-3xl md:text-4xl font-bold text-white">Video Resume</h2>
         </div>
         
@@ -37,7 +41,8 @@ const VideoResume = () => {
           A quick introduction to who I am, my communication style, and why I love what I do.
         </p>
 
-        <div className="max-w-4xl mx-auto bg-slate-900 p-2 rounded-2xl shadow-2xl border border-slate-700">
+        {/* Video Player with technical border */}
+        <div className="max-w-4xl mx-auto bg-slate-900 p-2 rounded-2xl shadow-2xl border-2 border-cyan-500/30">
           <div className="relative pb-[56.25%] h-0 rounded-xl overflow-hidden bg-black">
             <video
               ref={videoRef}
@@ -57,7 +62,7 @@ const VideoResume = () => {
             href="/TiuterevCV.pdf" 
             download 
             onClick={handleDownloadCV}
-            className="text-slate-400 hover:text-white text-sm font-medium transition-colors"
+            className="text-cyan-300 hover:text-white text-md font-medium transition-colors underline underline-offset-4 hover:decoration-fuchsia-400"
           >
             Download PDF Resume
           </a>
