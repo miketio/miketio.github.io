@@ -15,21 +15,44 @@ export const PERSONAL_INFO = {
 };
 
 export const PROJECTS = [
-  {
+  // {
+  //   id: 1,
+  //   title: "Autonomous Racing (DeepRacer)",
+  //   description: "Top 20 Finalist in the Audi & AWS DeepRacer Cup. Optimized action-space (race line, speed, steering) using Metropolis-Hastings algorithms and reinforcement learning. Deployed lightweight PyTorch models on AWS for competitive autonomous racing.",
+  //   techStack: ["Python", "PyTorch", "AWS", "Reinforcement Learning"],
+  //   images: [
+  //     "/deepracer/img1.jpg",
+  //     "/deepracer/img2.jpg",
+  //     "/deepracer/img3.jpg",
+  //     "/deepracer/img4.jpg"
+  //   ],
+  //   buttons: [
+  //     {
+  //       label: "Source Code",
+  //       link: "https://github.com/Piet1848/Bonnfire",
+  //       isPrimary: true
+  //     }
+  //   ]
+  // },
+    {
     id: 1,
-    title: "Autonomous Racing (DeepRacer)",
-    description: "Top 20 Finalist in the Audi & AWS DeepRacer Cup. Optimized action-space (race line, speed, steering) using Metropolis-Hastings algorithms and reinforcement learning. Deployed lightweight PyTorch models on AWS for competitive autonomous racing.",
-    techStack: ["Python", "PyTorch", "AWS", "Reinforcement Learning"],
+    title: "AI Agent for Audience Simulation",
+    description: "Built a system that discovers hidden audience segments, converts them to LLM-powered personas, then simulates their responses to questions they've never seen.",
+    techStack: ["AI Agents", "Python", "React", "Project Management"],
     images: [
-      "/deepracer/img1.jpg",
-      "/deepracer/img2.jpg",
-      "/deepracer/img3.jpg",
-      "/deepracer/img4.jpg"
+      "/survey_modulation/stage_0.jpg",
+      "/survey_modulation/stage_1.jpg",
+      "/survey_modulation/stage_2.jpg",
+      "/survey_modulation/stage_3.jpg",
+      "/survey_modulation/stage_4.jpg",
+      "/survey_modulation/stage_5.jpg",
+      "/survey_modulation/stage_6.jpg",
+      "/survey_modulation/stage_7.jpg"
     ],
     buttons: [
       {
         label: "Source Code",
-        link: "https://github.com/Piet1848/Bonnfire",
+        link: "https://github.com/miketio/survey_modulation",
         isPrimary: true
       }
     ]
@@ -96,8 +119,7 @@ export const PROJECTS = [
     images: [
       "/formula-student/img1.jpg",
       "/formula-student/img2.jpg",
-      "/formula-student/img3.jpg",
-      "/formula-student/img4.jpg"
+      "/formula-student/img3.jpg"
     ],
     buttons: [
       {
